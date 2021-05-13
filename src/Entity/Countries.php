@@ -3,16 +3,16 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\FamiliesRepository;
+use App\Repository\CountriesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ApiResource()
- * @ORM\Entity(repositoryClass=FamiliesRepository::class)
+ * @ORM\Entity(repositoryClass=CountriesRepository::class)
  */
-class Families
+class Countries
 {
     /**
      * @ORM\Id
@@ -22,18 +22,18 @@ class Families
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=150)
+     * @ORM\Column(type="string", length=50)
      */
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Plants::class, mappedBy="family")
+     * @ORM\OneToMany(targetEntity=Addresses::class, mappedBy="country")
      */
-    private $plants;
+    private $addresses;
 
     public function __construct()
     {
-        $this->plants = new ArrayCollection();
+        $this->addresses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -54,29 +54,29 @@ class Families
     }
 
     /**
-     * @return Collection|Plants[]
+     * @return Collection|Addresses[]
      */
-    public function getPlants(): Collection
+    public function getAddresses(): Collection
     {
-        return $this->plants;
+        return $this->addresses;
     }
 
-    public function addPlant(Plants $plant): self
+    public function addAddress(Addresses $address): self
     {
-        if (!$this->plants->contains($plant)) {
-            $this->plants[] = $plant;
-            $plant->setFamily($this);
+        if (!$this->addresses->contains($address)) {
+            $this->addresses[] = $address;
+            $address->setCountry($this);
         }
 
         return $this;
     }
 
-    public function removePlant(Plants $plant): self
+    public function removeAddress(Addresses $address): self
     {
-        if ($this->plants->removeElement($plant)) {
+        if ($this->addresses->removeElement($address)) {
             // set the owning side to null (unless already changed)
-            if ($plant->getFamily() === $this) {
-                $plant->setFamily(null);
+            if ($address->getCountry() === $this) {
+                $address->setCountry(null);
             }
         }
 

@@ -2,10 +2,14 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ProductsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass=ProductsRepository::class)
  */
 class Products
@@ -48,9 +52,15 @@ class Products
      */
     private $productPlant;
 
+    /**
+     * @ORM\OneToMany(targetEntity=OrderedProduct::class, mappedBy="product_id")
+     */
+    private $orderedProducts;
+
     public function __construct()
     {
         $this->productPlant = new ArrayCollection();
+        $this->orderedProducts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -114,6 +124,36 @@ class Products
     public function setCategory(?Categories $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|OrderedProduct[]
+     */
+    public function getOrderedProducts(): Collection
+    {
+        return $this->orderedProducts;
+    }
+
+    public function addOrderedProduct(OrderedProduct $orderedProduct): self
+    {
+        if (!$this->orderedProducts->contains($orderedProduct)) {
+            $this->orderedProducts[] = $orderedProduct;
+            $orderedProduct->setProductId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderedProduct(OrderedProduct $orderedProduct): self
+    {
+        if ($this->orderedProducts->removeElement($orderedProduct)) {
+            // set the owning side to null (unless already changed)
+            if ($orderedProduct->getProductId() === $this) {
+                $orderedProduct->setProductId(null);
+            }
+        }
 
         return $this;
     }
