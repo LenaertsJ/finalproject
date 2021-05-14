@@ -32,11 +32,6 @@ class Products
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $img;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $price;
@@ -57,10 +52,16 @@ class Products
      */
     private $orderedProducts;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="product")
+     */
+    private $images;
+
     public function __construct()
     {
         $this->productPlant = new ArrayCollection();
         $this->orderedProducts = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -88,18 +89,6 @@ class Products
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getImg(): ?string
-    {
-        return $this->img;
-    }
-
-    public function setImg(?string $img): self
-    {
-        $this->img = $img;
 
         return $this;
     }
@@ -152,6 +141,36 @@ class Products
             // set the owning side to null (unless already changed)
             if ($orderedProduct->getProductId() === $this) {
                 $orderedProduct->setProductId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Images[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getProduct() === $this) {
+                $image->setProduct(null);
             }
         }
 

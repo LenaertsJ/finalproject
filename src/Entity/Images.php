@@ -3,16 +3,16 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\AttachmentsRepository;
+use App\Repository\ImagesRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ApiResource()
- * @ORM\Entity(repositoryClass=AttachmentsRepository::class)
+ * @ORM\Entity(repositoryClass=ImagesRepository::class)
  * @Vich\Uploadable()
  */
-class Attachments
+class Images
 {
     /**
      * @ORM\Id
@@ -27,14 +27,14 @@ class Attachments
     private $image;
 
     /**
-     * @Vich\UploadableField(mapping="attachments", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="images", fileNameProperty="image")
      */
     private $imageFile;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $createdAt;
+//    /**
+//     * @ORM\Column(type="datetime")
+//     */
+//    private $createdAt;
 
     /**
      * @ORM\Column(type="datetime")
@@ -42,21 +42,14 @@ class Attachments
     private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Plants::class, inversedBy="attachments")
+     * @ORM\ManyToOne(targetEntity=Plants::class, inversedBy="images", cascade={"all"})
      */
     private $plant;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Products::class, inversedBy="attachments")
+     * @ORM\ManyToOne(targetEntity=Products::class, inversedBy="images")
      */
     private $product;
-
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
-
-    }
 
     public function getId(): ?int
     {
@@ -68,24 +61,24 @@ class Attachments
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
+//    public function getCreatedAt(): ?\DateTimeInterface
+//    {
+//        return $this->createdAt;
+//    }
+//
+//    public function setCreatedAt(\DateTimeInterface $createdAt): self
+//    {
+//        $this->createdAt = $createdAt;
+//
+//        return $this;
+//    }
 
     public function getUpdatedAt(): ?\DateTimeInterface
     {
@@ -134,11 +127,12 @@ class Attachments
      * @param mixed $imageFile
      * @throws \Exception
      */
-    public function setImageFile($imageFile): void
+    public function setImageFile($imageFile)
     {
-        $this->imageFile = $imageFile;
-        if($imageFile){
-            $this->updatedAt = new \DateTime();
-        }
+       $this->imageFile = $imageFile;
+       if($imageFile)
+       {
+           $this->updatedAt = new \DateTime();
+       }
     }
 }

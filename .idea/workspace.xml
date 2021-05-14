@@ -2,9 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4791d89f-45fa-4632-99ba-99bfa5aad383" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/deherborist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deherborist.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210512101211.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210512110754.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210512111720.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210512111853.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210513095352.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210513101940.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210513153705.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Attachments.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Families.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Families.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Plants.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Plants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Products.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +145,9 @@
       <path value="$PROJECT_DIR$/vendor/api-platform/core" />
       <path value="$PROJECT_DIR$/vendor/jms/metadata" />
       <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/uid" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-uuid" />
+      <path value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1sQm7zCw6mIhdWzkeJSeGabgNPw" />
@@ -136,6 +156,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -152,7 +173,8 @@
       <updated>1620813023702</updated>
       <workItem from="1620813024827" duration="6212000" />
       <workItem from="1620897878752" duration="2117000" />
-      <workItem from="1620922463302" duration="653000" />
+      <workItem from="1620922463302" duration="1058000" />
+      <workItem from="1620983812094" duration="7081000" />
     </task>
     <servers />
   </component>
