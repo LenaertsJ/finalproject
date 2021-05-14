@@ -42,19 +42,20 @@ class Plants
     private $family;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Qualities")
+     * @var Qualities[]
+     * @ORM\ManyToMany(targetEntity="Qualities", inversedBy="plants")
      * @ORM\JoinTable(name="plant_qualities")
      */
-    private $plantQualities;
+    private $qualities;
 
     /**
-     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="plant", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="plant", cascade={"persist", "remove"})
      */
     private $images;
 
     public function __construct()
     {
-        $this->plantQualities = new ArrayCollection();
+        $this->qualities = new ArrayCollection();
         $this->images = new ArrayCollection();
     }
 
@@ -112,6 +113,32 @@ class Plants
     }
 
     /**
+     * Get all associated categories.
+     *
+     * @return Qualities[]
+     */
+    public function getQualities()
+    {
+        return $this->qualities;
+    }
+
+    /**
+     * Set all categories of the product.
+     *
+     * @param Qualities[] $qualities
+     */
+    public function setQualities(array $qualities)
+    {
+        // This is the owning side, we have to call remove and add to have change in the category side too.
+        foreach ($this->getQualities() as $quality) {
+            $this->removeQuality($quality);
+        }
+        foreach ($qualities as $quality) {
+            $this->addQuality($quality);
+        }
+    }
+
+    /**
      * @return Collection|Images[]
      */
     public function getImages(): Collection
@@ -140,5 +167,37 @@ class Plants
 
         return $this;
     }
-    
+
+    /**
+     * Add a quality in the plant association.
+     * (Owning side).
+     *
+     * @param $quality Qualities the quality to associate
+     */
+    public function addQuality(Qualities $quality)
+    {
+        if ($this->qualities->contains($quality)) {
+            return;
+        }
+
+        $this->qualities->add($quality);
+        $quality->addPlant($this);
+    }
+
+    /**
+     * Remove a quality in the plant association.
+     * (Owning side).
+     *
+     * @param $quality Qualities the category to associate
+     */
+    public function removeQuality(Qualities $quality)
+    {
+        if (!$this->qualities->contains($quality)) {
+            return;
+        }
+
+        $this->qualities->removeElement($quality);
+        $quality->removePlant($this);
+    }
+
 }
