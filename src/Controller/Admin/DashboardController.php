@@ -2,8 +2,12 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Families;
+use App\Entity\Orders;
 use App\Entity\Plants;
 use App\Entity\Products;
+use App\Entity\Qualities;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -28,7 +32,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Deherborist');
+            ->setTitle('De Herborist');
     }
 
     public function configureMenuItems(): iterable
@@ -36,7 +40,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::section('Herbarium');
         yield MenuItem::linkToCrud('Plants', 'fab fa-pagelines', Plants::class);
+        yield MenuItem::linkToCrud('Families', 'fab fa-pagelines', Families::class);
+        yield MenuItem::linkToCrud('Qualities', 'fas fa-mortar-pestle', Qualities::class);
         yield MenuItem::section('Webshop');
         yield MenuItem::linkToCrud('Products', 'fas fa-palette', Products::class);
+        yield MenuItem::linkToCrud('Orders', 'fas fa-boxes', Orders::class)->setDefaultSort(['order_date' => 'DESC']);
+        yield MenuItem::linkToCrud('Customers', 'fas fa-user', User::class);
     }
 }
