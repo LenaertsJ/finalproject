@@ -48,16 +48,6 @@ class User implements UserInterface
      */
     private $lastname;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Addresses::class, inversedBy="users")
-     */
-    private $address;
-
-    public function __construct()
-    {
-        $this->address = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -163,27 +153,4 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Addresses[]
-     */
-    public function getAddress(): Collection
-    {
-        return $this->address;
-    }
-
-    public function addAddress(Addresses $address): self
-    {
-        if (!$this->address->contains($address)) {
-            $this->address[] = $address;
-        }
-
-        return $this;
-    }
-
-    public function removeAddress(Addresses $address): self
-    {
-        $this->address->removeElement($address);
-
-        return $this;
-    }
 }
