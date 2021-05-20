@@ -31,11 +31,6 @@ class Images
      */
     private $imageFile;
 
-//    /**
-//     * @ORM\Column(type="datetime")
-//     */
-//    private $createdAt;
-
     /**
      * @ORM\Column(type="datetime")
      */
@@ -67,18 +62,6 @@ class Images
 
         return $this;
     }
-
-//    public function getCreatedAt(): ?\DateTimeInterface
-//    {
-//        return $this->createdAt;
-//    }
-//
-//    public function setCreatedAt(\DateTimeInterface $createdAt): self
-//    {
-//        $this->createdAt = $createdAt;
-//
-//        return $this;
-//    }
 
     public function getUpdatedAt(): ?\DateTimeInterface
     {

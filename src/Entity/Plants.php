@@ -4,13 +4,16 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PlantsRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass=PlantsRepository::class)
+ * @Vich\Uploadable
  */
 class Plants
 {
@@ -49,14 +52,59 @@ class Plants
     private $qualities;
 
     /**
-     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="plant", cascade={"persist", "remove"})
+     * @ORM\Column(type="string", length=255)
      */
-    private $images;
+    private $image;
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param mixed $imageFile
+     */
+    public function setImageFile($imageFile): void
+    {
+        $this->imageFile = $imageFile;
+        if($imageFile){
+            $this->updatedAt = new \DateTime();
+        }
+    }
+
+    /**
+     * @Vich\UploadableField(mapping="images", fileNameProperty="image")
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
 
     public function __construct()
     {
+        $this->updatedAt = new \DateTime();
         $this->qualities = new ArrayCollection();
-        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -136,36 +184,6 @@ class Plants
         foreach ($qualities as $quality) {
             $this->addQuality($quality);
         }
-    }
-
-    /**
-     * @return Collection|Images[]
-     */
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
-
-    public function addImage(Images $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images[] = $image;
-            $image->setPlant($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(Images $image): self
-    {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getPlant() === $this) {
-                $image->setPlant(null);
-            }
-        }
-
-        return $this;
     }
 
     /**

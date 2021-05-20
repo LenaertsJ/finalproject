@@ -27,23 +27,25 @@ class PlantsCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-
-        return [
+        $image = ImageField::new('image')->setBasePath('resources/images');
+        $imageFile = TextField::new('imageFile')->setFormType(VichImageType::class);
+        $fields = [
             IdField::new('id', 'ID')->hideOnForm(),
             TextField::new('name'),
             TextField::new('latin_name'),
             TextEditorField::new('symbolism'),
             AssociationField::new('family'),
             AssociationField::new('qualities')
-                ->setTemplatePath('list.html.twig'),
-            CollectionField::new('images')
-                ->setEntryType(ResourceType::class)
-                ->setFormTypeOption('by_reference', false)
-                ->onlyOnForms(),
-            CollectionField::new('images')
-                ->setTemplatePath('images.html.twig')
-                ->onlyOnDetail()
+                ->setTemplatePath('list.html.twig')
         ];
+
+        if($pageName == Crud::PAGE_INDEX || $pageName == Crud::PAGE_DETAIL){
+            $fields[] = $image;
+        } else {
+            $fields[] = $imageFile;
+        }
+
+        return $fields;
 
     }
 
