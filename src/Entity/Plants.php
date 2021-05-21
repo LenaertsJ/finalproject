@@ -8,10 +8,14 @@ use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     normalizationContext={"groups"={"plants:read"}},
+ *     denormalizationContext={"groups"={"plants:write"}}
+ * )
  * @ORM\Entity(repositoryClass=PlantsRepository::class)
  * @Vich\Uploadable
  */
@@ -26,21 +30,25 @@ class Plants
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Groups({"plants:read","qualities:read"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
+     * @Groups({"plants:read", "qualities:read"})
      */
     private $latin_name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"plants:read"})
      */
     private $symbolism;
 
     /**
      * @ORM\ManyToOne(targetEntity=Families::class, inversedBy="plants")
+     * @Groups({"plants:read"})
      */
     private $family;
 
@@ -48,11 +56,13 @@ class Plants
      * @var Qualities[]
      * @ORM\ManyToMany(targetEntity="Qualities", inversedBy="plants")
      * @ORM\JoinTable(name="plant_qualities")
+     * @Groups({"plants:read"})
      */
     private $qualities;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"plants:read"})
      */
     private $image;
 

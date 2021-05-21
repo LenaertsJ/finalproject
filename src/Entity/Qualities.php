@@ -6,11 +6,16 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\QualitiesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     normalizationContext={"groups"={"qualities:read"}},
+ *     denormalizationContext={"groups"={"qualities:write"}}
+ * )
  * @ORM\Entity(repositoryClass=QualitiesRepository::class)
  */
+
 class Qualities
 {
     /**
@@ -22,6 +27,7 @@ class Qualities
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"qualities:read", "qualities:write", "plants:read"})
      */
     private $name;
 
@@ -30,11 +36,13 @@ class Qualities
      *
      * @var Plants[]
      * @ORM\ManyToMany(targetEntity="Plants", mappedBy="qualities")
-     **/
+     * @Groups({"qualities:read", "qualities:write"})
+     */
     protected $plants;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"qualities:read", "plants:read"})
      */
     private $description;
 
@@ -55,6 +63,18 @@ class Qualities
         return $this;
     }
 
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
     public function __construct()
     {
         $this->plants = new ArrayCollection();
@@ -63,6 +83,11 @@ class Qualities
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getPlants()
+    {
+        return $this->plants;
     }
 
     /**
@@ -93,15 +118,5 @@ class Qualities
         $plant->removeQuality($this);
     }
 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
 
-    public function setDescription(string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
 }

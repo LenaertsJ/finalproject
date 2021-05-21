@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4791d89f-45fa-4632-99ba-99bfa5aad383" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/QualitiesCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/QualitiesCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Families.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Families.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Plants.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Plants.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Qualities.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Qualities.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -158,6 +162,7 @@
       <workItem from="1620983812094" duration="14647000" />
       <workItem from="1621498284000" duration="829000" />
       <workItem from="1621515229693" duration="5972000" />
+      <workItem from="1621589365363" duration="4614000" />
     </task>
     <servers />
   </component>
