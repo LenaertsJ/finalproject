@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\PlantsRepository;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -16,6 +19,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *     normalizationContext={"groups"={"plants:read"}},
  *     denormalizationContext={"groups"={"plants:write"}}
  * )
+ * @ApiFilter(SearchFilter::class, properties={"name":"partial"})
  * @ORM\Entity(repositoryClass=PlantsRepository::class)
  * @Vich\Uploadable
  */
@@ -67,41 +71,7 @@ class Plants
     private $image;
 
     /**
-     * @return mixed
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * @param mixed $image
-     */
-    public function setImage($image): void
-    {
-        $this->image = $image;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
-
-    /**
-     * @param mixed $imageFile
-     */
-    public function setImageFile($imageFile): void
-    {
-        $this->imageFile = $imageFile;
-        if($imageFile){
-            $this->updatedAt = new \DateTime();
-        }
-    }
-
-    /**
+     * @var File|null
      * @Vich\UploadableField(mapping="images", fileNameProperty="image")
      */
     private $imageFile;
@@ -168,6 +138,42 @@ class Plants
         $this->family = $family;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return "http://localhost:8000/resources/images/" . $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     * TODO : reformat image title to lowercase and no spaces.
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param mixed $imageFile
+     */
+    public function setImageFile($imageFile): void
+    {
+        $this->imageFile = $imageFile;
+        if($imageFile){
+            $this->updatedAt = new \DateTime();
+        }
     }
 
     /**
