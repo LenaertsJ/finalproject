@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\QualitiesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,6 +15,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *     normalizationContext={"groups"={"qualities:read"}},
  *     denormalizationContext={"groups"={"qualities:write"}}
  * )
+ * @ApiFilter(SearchFilter::class, properties={"name":"partial"})
  * @ORM\Entity(repositoryClass=QualitiesRepository::class)
  */
 

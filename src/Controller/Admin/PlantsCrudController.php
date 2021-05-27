@@ -31,11 +31,13 @@ class PlantsCrudController extends AbstractCrudController
         $imageFile = TextField::new('imageFile')->setFormType(VichImageType::class);
         $fields = [
             IdField::new('id', 'ID')->hideOnForm(),
-            TextField::new('name'),
+            TextField::new('name')->formatValue(function ($value){
+                return ucfirst($value);
+            }),
             TextField::new('latin_name'),
             TextEditorField::new('symbolism'),
             AssociationField::new('family'),
-            AssociationField::new('qualities')
+            AssociationField::new('qualities')->setRequired(true)
                 ->setTemplatePath('list.html.twig')
         ];
 

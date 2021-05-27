@@ -6,7 +6,6 @@ use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\PlantsRepository;
-use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -29,6 +28,7 @@ class Plants
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"plants:read", "qualities:read"})
      */
     private $id;
 
@@ -58,7 +58,7 @@ class Plants
 
     /**
      * @var Qualities[]
-     * @ORM\ManyToMany(targetEntity="Qualities", inversedBy="plants")
+     * @ORM\ManyToMany(targetEntity="Qualities", inversedBy="Plants")
      * @ORM\JoinTable(name="plant_qualities")
      * @Groups({"plants:read"})
      */
@@ -76,15 +76,27 @@ class Plants
      */
     private $imageFile;
 
+//    /**
+//     * @ORM\Column(type="string", length=255)
+//     * @Groups({"plants:read"})
+//     */
+//    private $imageUrl;
+
     /**
      * @ORM\Column(type="datetime")
      */
     private $updatedAt;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Products::class, mappedBy="plants")
+     */
+    private $products;
+
     public function __construct()
     {
         $this->updatedAt = new \DateTime();
         $this->qualities = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -145,8 +157,16 @@ class Plants
      */
     public function getImage()
     {
-        return "http://localhost:8000/resources/images/" . $this->image;
+        return $this->image;
     }
+
+//    /**
+//     * @return mixed
+//     */
+//    public function getImageUrl()
+//    {
+//        return $this->imageUrl;
+//    }
 
     /**
      * @param mixed $image
@@ -232,6 +252,38 @@ class Plants
 
         $this->qualities->removeElement($quality);
         $quality->removePlant($this);
+    }
+
+    /**
+     * @return Collection|Products[]
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Products $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->addPlant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduct(Products $product): self
+    {
+        if ($this->products->removeElement($product)) {
+            $product->removePlant($this);
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
 }
