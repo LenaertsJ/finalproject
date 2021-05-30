@@ -1,0 +1,52 @@
+body{
+    background-color: #0B7FC7;
+}
+
+.container{
+    width: 50%;
+    margin: 0 auto;
+    padding: 12%;
+    min-height: 100vh;
+}
+
+.form-wrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.login-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.input-field{
+    margin: 10px;
+    line-height: 35px;
+    display:block;
+}
+
+input{
+    border-radius: 20px;
+    border: none;
+    width: 100%;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+button{
+    margin-top: 50px;
+    line-height: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: black 1px solid;
+    border-radius: 5px;
+}
+
+.title{
+    text-align: center;
+    text-transform: uppercase;
+}
+

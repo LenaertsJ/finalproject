@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Categories;
 use App\Entity\Families;
 use App\Entity\Orders;
 use App\Entity\Plants;
@@ -43,6 +44,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Families', 'fab fa-pagelines', Families::class);
         yield MenuItem::linkToCrud('Qualities', 'fas fa-mortar-pestle', Qualities::class);
         yield MenuItem::section('Webshop');
+        yield MenuItem::linkToCrud('Categories', 'far fa-copy', Categories::class);
         yield MenuItem::linkToCrud('Products', 'fas fa-palette', Products::class);
         yield MenuItem::linkToCrud('Orders', 'fas fa-boxes', Orders::class)->setDefaultSort(['order_date' => 'DESC']);
         yield MenuItem::linkToCrud('Customers', 'fas fa-user', User::class);

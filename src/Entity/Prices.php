@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PricesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
@@ -21,6 +22,7 @@ class Prices
 
     /**
      * @ORM\Column(type="smallint")
+     * @Groups({"products:read"})
      */
     private $amount;
 

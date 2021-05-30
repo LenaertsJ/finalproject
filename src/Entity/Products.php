@@ -2,60 +2,77 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ProductsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     normalizationContext={"groups"={"products:read"}},
+ *     denormalizationContext={"groups"={"products:write"}}
+ * )
+ * @ApiFilter(SearchFilter::class, properties={"category.name":"partial"})
  * @ORM\Entity(repositoryClass=ProductsRepository::class)
  * @Vich\Uploadable
  */
+
+
 class Products
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"products:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=150)
+     * @Groups({"products:read"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"products:read"})
      */
     private $description;
 
     /**
      * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="products")
+     * @Groups({"products:read"})
      */
     private $category;
 
     /**
      * @ORM\OneToMany(targetEntity=OrderedProduct::class, mappedBy="product_id")
+     * @Groups({"products:read"})
      */
     private $orderedProducts;
 
     /**
      * @ORM\OneToMany(targetEntity=Prices::class, mappedBy="product")
+     * @Groups({"products:read"})
      */
     private $prices;
 
     /**
      * @ORM\ManyToMany(targetEntity=Plants::class, inversedBy="products")
+     * @Groups({"products:read"})
      */
     private $plants;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"products:read"})
      */
     private $image;
 
@@ -208,7 +225,7 @@ class Products
      */
     public function getImage()
     {
-        return $this->image;
+        return "http://localhost:8000/resources/images/" . $this->image;
     }
 
     /**

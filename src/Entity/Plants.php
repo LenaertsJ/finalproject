@@ -34,7 +34,7 @@ class Plants
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Groups({"plants:read","qualities:read"})
+     * @Groups({"plants:read","qualities:read", "products:read"})
      */
     private $name;
 
@@ -157,7 +157,7 @@ class Plants
      */
     public function getImage()
     {
-        return $this->image;
+        return "http://localhost:8000/resources/images/" . $this->image;
     }
 
 //    /**

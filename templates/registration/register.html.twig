@@ -6,18 +6,33 @@
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-
-    <h1>Register</h1>
-
+<div class="container">
+    <h1 class="title">Register</h1>
+    <div class="form-wrapper">
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.firstname) }}
-        {{ form_row(registrationForm.lastname) }}
+
+        {{ form_row(registrationForm.email, {'attr' : {'class' : 'input-field'}}) }}
+
+        {{ form_row(registrationForm.firstname, {'attr' : {'class' : 'input-field'}}) }}
+
+        {{ form_row(registrationForm.lastname, {'attr' : {'class' : 'input-field'}}) }}
+
         {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+            label: 'Password', 'attr' : {'class' : 'input-field'}
         }) }}
+
         {{ form_row(registrationForm.agreeTerms) }}
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
+    </div>
+</div>
 {% endblock %}
+
+{#    {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'form.username'|trans } }) }}#}
+{#        {{ form_errors(form.username) }}#}
+
+
+{#{{ form_label(form.username) }}#}
+{#{{ form_widget(form.username) }}#}
+{#{{ form_errors(form.username) }}#}
