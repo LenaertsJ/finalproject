@@ -28,7 +28,7 @@ class Plants
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"plants:read", "qualities:read"})
+     * @Groups({"plants:read", "qualities:read", "products:read"})
      */
     private $id;
 
