@@ -6,6 +6,7 @@ use App\Entity\Categories;
 use App\Entity\Families;
 use App\Entity\Orders;
 use App\Entity\Plants;
+use App\Entity\Prices;
 use App\Entity\Products;
 use App\Entity\Qualities;
 use App\Entity\User;
@@ -46,6 +47,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Webshop');
         yield MenuItem::linkToCrud('Categories', 'far fa-copy', Categories::class);
         yield MenuItem::linkToCrud('Products', 'fas fa-palette', Products::class);
+        yield MenuItem::linkToCrud('Prices', 'fas fa-euro-sign', Prices::class);
         yield MenuItem::linkToCrud('Orders', 'fas fa-boxes', Orders::class)->setDefaultSort(['order_date' => 'DESC']);
         yield MenuItem::linkToCrud('Customers', 'fas fa-user', User::class);
     }

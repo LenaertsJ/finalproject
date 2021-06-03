@@ -3,7 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="4791d89f-45fa-4632-99ba-99bfa5aad383" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210526092008.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210527090510.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210527093407.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210527093750.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210527102749.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210527130357.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/ProductsCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/ProductsCrudController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Plants.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Plants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Prices.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Prices.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +180,8 @@
       <workItem from="1622290061548" duration="4545000" />
       <workItem from="1622383285238" duration="3986000" />
       <workItem from="1622551904301" duration="39000" />
+      <workItem from="1622748869582" duration="1446000" />
+      <workItem from="1622750423799" duration="1455000" />
     </task>
     <servers />
   </component>
@@ -186,9 +199,9 @@
     </state>
     <state x="-826" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816/-1920.-17.1920.1055@-1920.-17.1920.1055" timestamp="1621527648076" />
     <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816@0.25.1440.816" timestamp="1622111744714" />
-    <state x="559" y="161" key="NewPhpClassDialog" timestamp="1621611618711">
+    <state x="559" y="161" key="NewPhpClassDialog" timestamp="1622750310017">
       <screen x="0" y="25" width="1440" height="816" />
     </state>
-    <state x="559" y="161" key="NewPhpClassDialog/0.25.1440.816@0.25.1440.816" timestamp="1621611618711" />
+    <state x="559" y="161" key="NewPhpClassDialog/0.25.1440.816@0.25.1440.816" timestamp="1622750310017" />
   </component>
 </project>

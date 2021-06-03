@@ -137,6 +137,42 @@ class Products
     }
 
     /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return "http://localhost:8000/resources/images/" . $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     * TODO : reformat image title to lowercase and no spaces.
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param mixed $imageFile
+     */
+    public function setImageFile($imageFile): void
+    {
+        $this->imageFile = $imageFile;
+        if($imageFile){
+            $this->updatedAt = new \DateTime();
+        }
+    }
+
+    /**
      * @return Collection|OrderedProduct[]
      */
     public function getOrderedProducts(): Collection
@@ -220,40 +256,8 @@ class Products
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getImage()
-    {
-        return "http://localhost:8000/resources/images/" . $this->image;
-    }
-
-    /**
-     * @param mixed $image
-     * TODO : reformat image title to lowercase and no spaces.
-     */
-    public function setImage($image): void
-    {
-        $this->image = $image;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
-
-    /**
-     * @param mixed $imageFile
-     */
-    public function setImageFile($imageFile): void
-    {
-        $this->imageFile = $imageFile;
-        if($imageFile){
-            $this->updatedAt = new \DateTime();
-        }
+    public function __toString(){
+        return $this->name;
     }
 
 }

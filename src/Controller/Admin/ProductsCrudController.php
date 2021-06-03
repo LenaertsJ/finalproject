@@ -34,7 +34,7 @@ class ProductsCrudController extends AbstractCrudController
             TextEditorField::new('description'),
             AssociationField::new('category'),
             AssociationField::new('plants')->setTemplatePath('list.html.twig'),
-//            Field::new('prices'),
+            AssociationField::new('prices', 'bruto price')->onlyOnIndex()->setTemplatePath('price.html.twig'),
         ];
 
         if($pageName == Crud::PAGE_INDEX || $pageName == Crud::PAGE_DETAIL){

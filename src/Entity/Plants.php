@@ -76,11 +76,11 @@ class Plants
      */
     private $imageFile;
 
-//    /**
-//     * @ORM\Column(type="string", length=255)
-//     * @Groups({"plants:read"})
-//     */
-//    private $imageUrl;
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"plants:read"})
+     */
+    private $imageUrl;
 
     /**
      * @ORM\Column(type="datetime")
@@ -97,6 +97,7 @@ class Plants
         $this->updatedAt = new \DateTime();
         $this->qualities = new ArrayCollection();
         $this->products = new ArrayCollection();
+        $this->imageUrl = "http://localhost:8000/resources/images/" . $this->image;
     }
 
     public function getId(): ?int
@@ -155,25 +156,33 @@ class Plants
     /**
      * @return mixed
      */
+    public function getImageUrl()
+    {
+        return $this->imageUrl;
+    }
+
+    /**
+     * @param mixed $imageUrl
+     */
+    public function setImageUrl($imageUrl): void
+    {
+        $this->imageUrl = $imageUrl;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getImage()
     {
         return "http://localhost:8000/resources/images/" . $this->image;
     }
 
-//    /**
-//     * @return mixed
-//     */
-//    public function getImageUrl()
-//    {
-//        return $this->imageUrl;
-//    }
-
     /**
      * @param mixed $image
-     * TODO : reformat image title to lowercase and no spaces.
      */
     public function setImage($image): void
     {
+        $image = strtolower($image);
         $this->image = $image;
     }
 
@@ -193,6 +202,7 @@ class Plants
         $this->imageFile = $imageFile;
         if($imageFile){
             $this->updatedAt = new \DateTime();
+            $this->imageUrl = "http://localhost:8000/resources/images/" . $this->image;
         }
     }
 

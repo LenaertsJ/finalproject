@@ -21,12 +21,6 @@ class Prices
     private $id;
 
     /**
-     * @ORM\Column(type="smallint")
-     * @Groups({"products:read"})
-     */
-    private $amount;
-
-    /**
      * @ORM\Column(type="date")
      */
     private $date;
@@ -35,6 +29,16 @@ class Prices
      * @ORM\ManyToOne(targetEntity=Products::class, inversedBy="prices")
      */
     private $product;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $nettoPrice;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $brutoPrice;
 
 
     public function __construct()
@@ -48,29 +52,17 @@ class Prices
         return $this->id;
     }
 
-    public function getAmount(): ?int
-    {
-        return $this->amount;
-    }
-
-    public function setAmount(int $amount): self
-    {
-        $this->amount = $amount;
-
-        return $this;
-    }
-
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
 
-//    public function setDate(\DateTimeInterface $date): self
-//    {
-//        $this->date = $date;
-//
-//        return $this;
-//    }
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
 
     public function getProduct(): ?Products
     {
@@ -82,5 +74,38 @@ class Prices
         $this->product = $product;
 
         return $this;
+    }
+
+    public function getNettoPrice(): ?float
+    {
+        return $this->nettoPrice;
+    }
+
+    public function setNettoPrice(float $nettoPrice): self
+    {
+        $this->nettoPrice = $nettoPrice;
+        if($nettoPrice)
+        {
+            $this->brutoPrice = round($nettoPrice + ($nettoPrice * .21), 1);
+        }
+
+        return $this;
+    }
+
+    public function getBrutoPrice(): ?float
+    {
+        return $this->brutoPrice;
+    }
+
+    public function setBrutoPrice(float $brutoPrice): self
+    {
+        $this->brutoPrice = $brutoPrice;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return strval($this->brutoPrice);
     }
 }

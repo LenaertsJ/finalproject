@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210526092008 extends AbstractMigration
+final class Version20210603194540 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -28,8 +28,9 @@ final class Version20210526092008 extends AbstractMigration
         $this->addSql('CREATE TABLE orders (id INT AUTO_INCREMENT NOT NULL, order_stat_id INT NOT NULL, order_date DATETIME NOT NULL, order_total_price INT DEFAULT NULL, order_total_prod INT DEFAULT NULL, INDEX IDX_E52FFDEEFF2A8640 (order_stat_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE plants (id INT AUTO_INCREMENT NOT NULL, family_id INT DEFAULT NULL, name VARCHAR(100) NOT NULL, latin_name VARCHAR(100) DEFAULT NULL, symbolism LONGTEXT DEFAULT NULL, image VARCHAR(255) NOT NULL, updated_at DATETIME NOT NULL, INDEX IDX_A5AEDC16C35E566A (family_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE plant_qualities (plants_id INT NOT NULL, qualities_id INT NOT NULL, INDEX IDX_D4252A1862091EAB (plants_id), INDEX IDX_D4252A18861D12EC (qualities_id), PRIMARY KEY(plants_id, qualities_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE products (id INT AUTO_INCREMENT NOT NULL, category_id INT DEFAULT NULL, name VARCHAR(150) NOT NULL, description VARCHAR(255) DEFAULT NULL, price INT NOT NULL, INDEX IDX_B3BA5A5A12469DE2 (category_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE product_plant (products_id INT NOT NULL, plants_id INT NOT NULL, INDEX IDX_A5F762E6C8A81A9 (products_id), INDEX IDX_A5F762E62091EAB (plants_id), PRIMARY KEY(products_id, plants_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE prices (id INT AUTO_INCREMENT NOT NULL, product_id INT DEFAULT NULL, amount SMALLINT NOT NULL, date DATE NOT NULL, INDEX IDX_E4CB6D594584665A (product_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE products (id INT AUTO_INCREMENT NOT NULL, category_id INT DEFAULT NULL, name VARCHAR(150) NOT NULL, description VARCHAR(255) DEFAULT NULL, image VARCHAR(255) NOT NULL, updated_at DATETIME NOT NULL, INDEX IDX_B3BA5A5A12469DE2 (category_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE products_plants (products_id INT NOT NULL, plants_id INT NOT NULL, INDEX IDX_239D573C6C8A81A9 (products_id), INDEX IDX_239D573C62091EAB (plants_id), PRIMARY KEY(products_id, plants_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE qualities (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(50) NOT NULL, description LONGTEXT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, address_id INT DEFAULT NULL, email VARCHAR(180) NOT NULL, roles LONGTEXT NOT NULL, password VARCHAR(255) NOT NULL, firstname VARCHAR(50) DEFAULT NULL, lastname VARCHAR(50) NOT NULL, UNIQUE INDEX UNIQ_8D93D649E7927C74 (email), INDEX IDX_8D93D649F5B7AF75 (address_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE ordered_product ADD CONSTRAINT FK_E6F097B6FCDAEAAA FOREIGN KEY (order_id_id) REFERENCES orders (id)');
@@ -38,9 +39,10 @@ final class Version20210526092008 extends AbstractMigration
         $this->addSql('ALTER TABLE plants ADD CONSTRAINT FK_A5AEDC16C35E566A FOREIGN KEY (family_id) REFERENCES families (id)');
         $this->addSql('ALTER TABLE plant_qualities ADD CONSTRAINT FK_D4252A1862091EAB FOREIGN KEY (plants_id) REFERENCES plants (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE plant_qualities ADD CONSTRAINT FK_D4252A18861D12EC FOREIGN KEY (qualities_id) REFERENCES qualities (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE prices ADD CONSTRAINT FK_E4CB6D594584665A FOREIGN KEY (product_id) REFERENCES products (id)');
         $this->addSql('ALTER TABLE products ADD CONSTRAINT FK_B3BA5A5A12469DE2 FOREIGN KEY (category_id) REFERENCES categories (id)');
-        $this->addSql('ALTER TABLE product_plant ADD CONSTRAINT FK_A5F762E6C8A81A9 FOREIGN KEY (products_id) REFERENCES products (id) ON DELETE CASCADE');
-        $this->addSql('ALTER TABLE product_plant ADD CONSTRAINT FK_A5F762E62091EAB FOREIGN KEY (plants_id) REFERENCES plants (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE products_plants ADD CONSTRAINT FK_239D573C6C8A81A9 FOREIGN KEY (products_id) REFERENCES products (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE products_plants ADD CONSTRAINT FK_239D573C62091EAB FOREIGN KEY (plants_id) REFERENCES plants (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE user ADD CONSTRAINT FK_8D93D649F5B7AF75 FOREIGN KEY (address_id) REFERENCES address (id)');
     }
 
@@ -53,9 +55,10 @@ final class Version20210526092008 extends AbstractMigration
         $this->addSql('ALTER TABLE orders DROP FOREIGN KEY FK_E52FFDEEFF2A8640');
         $this->addSql('ALTER TABLE ordered_product DROP FOREIGN KEY FK_E6F097B6FCDAEAAA');
         $this->addSql('ALTER TABLE plant_qualities DROP FOREIGN KEY FK_D4252A1862091EAB');
-        $this->addSql('ALTER TABLE product_plant DROP FOREIGN KEY FK_A5F762E62091EAB');
+        $this->addSql('ALTER TABLE products_plants DROP FOREIGN KEY FK_239D573C62091EAB');
         $this->addSql('ALTER TABLE ordered_product DROP FOREIGN KEY FK_E6F097B6DE18E50B');
-        $this->addSql('ALTER TABLE product_plant DROP FOREIGN KEY FK_A5F762E6C8A81A9');
+        $this->addSql('ALTER TABLE prices DROP FOREIGN KEY FK_E4CB6D594584665A');
+        $this->addSql('ALTER TABLE products_plants DROP FOREIGN KEY FK_239D573C6C8A81A9');
         $this->addSql('ALTER TABLE plant_qualities DROP FOREIGN KEY FK_D4252A18861D12EC');
         $this->addSql('DROP TABLE address');
         $this->addSql('DROP TABLE categories');
@@ -65,8 +68,9 @@ final class Version20210526092008 extends AbstractMigration
         $this->addSql('DROP TABLE orders');
         $this->addSql('DROP TABLE plants');
         $this->addSql('DROP TABLE plant_qualities');
+        $this->addSql('DROP TABLE prices');
         $this->addSql('DROP TABLE products');
-        $this->addSql('DROP TABLE product_plant');
+        $this->addSql('DROP TABLE products_plants');
         $this->addSql('DROP TABLE qualities');
         $this->addSql('DROP TABLE user');
     }
