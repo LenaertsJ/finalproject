@@ -37,6 +37,7 @@ class Prices
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"products:read"})
      */
     private $brutoPrice;
 

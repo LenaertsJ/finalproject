@@ -83,9 +83,21 @@ class Products
     private $imageFile;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"products:read"})
+     */
+    private $imageUrl;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $updatedAt;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"products:read"})
+     */
+    private $stock;
 
     public function __construct()
     {
@@ -93,6 +105,7 @@ class Products
         $this->orderedProducts = new ArrayCollection();
         $this->prices = new ArrayCollection();
         $this->plants = new ArrayCollection();
+        $this->imageUrl = "http://localhost:8000/resources/images/" . $this->image;
     }
 
     public function getId(): ?int
@@ -136,12 +149,19 @@ class Products
         return $this;
     }
 
+    public function setStock(int $stock): self
+    {
+        $this->stock = $stock;
+
+        return $this;
+    }
+
     /**
      * @return mixed
      */
     public function getImage()
     {
-        return "http://localhost:8000/resources/images/" . $this->image;
+        return $this->image;
     }
 
     /**
@@ -169,7 +189,24 @@ class Products
         $this->imageFile = $imageFile;
         if($imageFile){
             $this->updatedAt = new \DateTime();
+            $this->imageUrl = "http://localhost:8000/resources/images/" . $this->image;
         }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageUrl()
+    {
+        return $this->imageUrl;
+    }
+
+    /**
+     * @param mixed $imageUrl
+     */
+    public function setImageUrl($imageUrl): void
+    {
+        $this->imageUrl = $imageUrl;
     }
 
     /**
@@ -256,8 +293,17 @@ class Products
         return $this;
     }
 
+
+
     public function __toString(){
         return $this->name;
     }
+
+    public function getStock(): ?int
+    {
+        return $this->stock;
+    }
+
+
 
 }

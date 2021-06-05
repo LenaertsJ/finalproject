@@ -174,7 +174,7 @@ class Plants
      */
     public function getImage()
     {
-        return "http://localhost:8000/resources/images/" . $this->image;
+        return $this->image;
     }
 
     /**
