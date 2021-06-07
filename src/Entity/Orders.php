@@ -33,15 +33,9 @@ class Orders
     private $order_date;
 
     /**
-     * @ORM\OneToMany(targetEntity=OrderedProduct::class, mappedBy="order_id", orphanRemoval=true)
-     * @Groups({"orders:read"})
-     */
-    private $orderedProducts;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Address::class, inversedBy="orders")
      * @ORM\JoinColumn(nullable=true)
-     * @Groups({"orders:read"})
+     * @Groups({"orders:read", "orders:write"})
      */
     private $address;
 
@@ -57,11 +51,23 @@ class Orders
      */
     private $totalItems;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Customers::class, inversedBy="orders")
+     * @Groups({"orders:read", "orders:write"})
+     */
+    private $customer;
+
+    /**
+     * @ORM\OneToMany(targetEntity=OrderedProduct::class, mappedBy="ordered_prod_order", cascade={"persist"})
+     * @Groups({"orders:read", "orders:write"})
+     */
+    private $orderedProducts;
+
 
     public function __construct()
     {
-        $this->orderedProducts = new ArrayCollection();
         $this->order_date = new \DateTime();
+        $this->orderedProducts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -77,36 +83,6 @@ class Orders
     public function setOrderDate(\DateTimeInterface $order_date): self
     {
         $this->order_date = $order_date;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|OrderedProduct[]
-     */
-    public function getOrderedProducts(): Collection
-    {
-        return $this->orderedProducts;
-    }
-
-    public function addOrderedProduct(OrderedProduct $orderedProduct): self
-    {
-        if (!$this->orderedProducts->contains($orderedProduct)) {
-            $this->orderedProducts[] = $orderedProduct;
-            $orderedProduct->setOrderId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOrderedProduct(OrderedProduct $orderedProduct): self
-    {
-        if ($this->orderedProducts->removeElement($orderedProduct)) {
-            // set the owning side to null (unless already changed)
-            if ($orderedProduct->getOrderId() === $this) {
-                $orderedProduct->setOrderId(null);
-            }
-        }
 
         return $this;
     }
@@ -143,6 +119,48 @@ class Orders
     public function setTotalItems(?int $totalItems): self
     {
         $this->totalItems = $totalItems;
+
+        return $this;
+    }
+
+    public function getCustomer(): ?Customers
+    {
+        return $this->customer;
+    }
+
+    public function setCustomer(?Customers $customer): self
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|OrderedProduct[]
+     */
+    public function getOrderedProducts(): Collection
+    {
+        return $this->orderedProducts;
+    }
+
+    public function addOrderedProduct(OrderedProduct $orderedProduct): self
+    {
+        if (!$this->orderedProducts->contains($orderedProduct)) {
+            $this->orderedProducts[] = $orderedProduct;
+            $orderedProduct->setOrderedProdOrder($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderedProduct(OrderedProduct $orderedProduct): self
+    {
+        if ($this->orderedProducts->removeElement($orderedProduct)) {
+            // set the owning side to null (unless already changed)
+            if ($orderedProduct->getOrderedProdOrder() === $this) {
+                $orderedProduct->setOrderedProdOrder(null);
+            }
+        }
 
         return $this;
     }

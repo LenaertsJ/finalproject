@@ -37,6 +37,11 @@ security:
     access_control:
         - { path: '/register', roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
         - { path: '/login', roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: '/api/plants', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
+        - { path: '/api/categories', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
+        - { path: '/api/qualities', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
+        - { path: '/api/families', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
+        - { path: '/api/products', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
         - { path: '/api', roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
         - { path: '/', roles: [ROLE_ADMIN] }
 

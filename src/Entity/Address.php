@@ -28,45 +28,49 @@ class Address
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"address:read", "address:write", "orders:read"})
+     * @Groups({"address:read", "address:write"})
      */
     private $street;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"address:read", "address:write", "orders:read"})
+     * @Groups({"address:read", "address:write"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"address:read", "address:write", "orders:read"})
+     * @Groups({"address:read", "address:write"})
      */
     private $country;
 
     /**
      * @ORM\Column(type="smallint")
-     * @Groups({"address:read", "address:write", "orders:read"})
+     * @Groups({"address:read", "address:write"})
      */
     private $postalCode;
 
     /**
      * @ORM\Column(type="smallint")
-     * @Groups({"address:read", "address:write", "orders:read"})
+     * @Groups({"address:read", "address:write"})
      */
     private $houseNumber;
 
     /**
      * @ORM\OneToMany(targetEntity=User::class, mappedBy="address")
-     * @Groups({"address:read", "orders:read"})
      */
     private $users;
 
     /**
      * @ORM\OneToMany(targetEntity=Orders::class, mappedBy="address")
-     * @Groups({"address:read"})
      */
     private $orders;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Customers::class, mappedBy="address", cascade={"persist"})
+     * @Groups({"address:read", "address:write"})
+     */
+    private $customers;
 
 
 
@@ -75,6 +79,7 @@ class Address
         $this->users = new ArrayCollection();
         $this->customer = new ArrayCollection();
         $this->orders = new ArrayCollection();
+        $this->customers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -198,6 +203,33 @@ class Address
     public function setHouseNumber(int $houseNumber): self
     {
         $this->houseNumber = $houseNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Customers[]
+     */
+    public function getCustomers(): Collection
+    {
+        return $this->customers;
+    }
+
+    public function addCustomer(Customers $customer): self
+    {
+        if (!$this->customers->contains($customer)) {
+            $this->customers[] = $customer;
+            $customer->addAddress($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCustomer(Customers $customer): self
+    {
+        if ($this->customers->removeElement($customer)) {
+            $customer->removeAddress($this);
+        }
 
         return $this;
     }

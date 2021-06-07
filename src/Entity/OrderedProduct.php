@@ -26,62 +26,63 @@ class OrderedProduct
 
     /**
      * @ORM\ManyToOne(targetEntity=Orders::class, inversedBy="orderedProducts")
-     * @ORM\JoinColumn(nullable=false)
-     * @Groups({"orderedProduct:read", "orderedProduct:write"})
+     * @Groups({"orders:write"})
      */
-    private $order_id;
+    private $ordered_prod_order;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Products::class, inversedBy="orderedProducts")
+     * @ORM\ManyToOne(targetEntity=Products::class, inversedBy="orderedProducts", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"orderedProduct:read", "orderedProduct:write"})
+     * @Groups({"orders:read", "orders:write"})
      */
-    private $product_id;
+    private $product;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @Groups({"orderedProduct:read", "orderedProduct:write"})
+     * @ORM\Column(type="float")
+     * @Groups({"orders:read", "orders:write"})
      */
-    private $ordered_prod_price;
+    private $price;
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getOrderId(): ?Orders
+    public function getOrderedProdOrder(): ?Orders
     {
-        return $this->order_id;
+        return $this->ordered_prod_order;
     }
 
-    public function setOrderId(?Orders $order_id): self
+    public function setOrderedProdOrder(?Orders $ordered_prod_order): self
     {
-        $this->order_id = $order_id;
+        $this->ordered_prod_order = $ordered_prod_order;
 
         return $this;
     }
 
-    public function getProductId(): ?Products
+    public function getProduct(): ?Products
     {
-        return $this->product_id;
+        return $this->product;
     }
 
-    public function setProductId(?Products $product_id): self
+    public function setProduct(?Products $product): self
     {
-        $this->product_id = $product_id;
+        $this->product = $product;
 
         return $this;
     }
 
-    public function getOrderedProdPrice(): ?int
+    public function getPrice(): ?float
     {
-        return $this->ordered_prod_price;
+        return $this->price;
     }
 
-    public function setOrderedProdPrice(?int $ordered_prod_price): self
+    public function setPrice(float $price): self
     {
-        $this->ordered_prod_price = $ordered_prod_price;
+        $this->price = $price;
 
         return $this;
     }
+
 }

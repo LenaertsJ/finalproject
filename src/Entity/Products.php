@@ -53,12 +53,6 @@ class Products
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity=OrderedProduct::class, mappedBy="product_id")
-     * @Groups({"products:read"})
-     */
-    private $orderedProducts;
-
-    /**
      * @ORM\OneToMany(targetEntity=Prices::class, mappedBy="product")
      * @Groups({"products:read"})
      */
@@ -99,13 +93,18 @@ class Products
      */
     private $stock;
 
+    /**
+     * @ORM\OneToMany(targetEntity=OrderedProduct::class, mappedBy="product")
+     */
+    private $orderedProducts;
+
     public function __construct()
     {
         $this->updatedAt = new \DateTime();
-        $this->orderedProducts = new ArrayCollection();
         $this->prices = new ArrayCollection();
         $this->plants = new ArrayCollection();
         $this->imageUrl = "http://localhost:8000/resources/images/" . $this->image;
+        $this->orderedProducts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -210,36 +209,6 @@ class Products
     }
 
     /**
-     * @return Collection|OrderedProduct[]
-     */
-    public function getOrderedProducts(): Collection
-    {
-        return $this->orderedProducts;
-    }
-
-    public function addOrderedProduct(OrderedProduct $orderedProduct): self
-    {
-        if (!$this->orderedProducts->contains($orderedProduct)) {
-            $this->orderedProducts[] = $orderedProduct;
-            $orderedProduct->setProductId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOrderedProduct(OrderedProduct $orderedProduct): self
-    {
-        if ($this->orderedProducts->removeElement($orderedProduct)) {
-            // set the owning side to null (unless already changed)
-            if ($orderedProduct->getProductId() === $this) {
-                $orderedProduct->setProductId(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Prices[]
      */
     public function getPrices(): Collection
@@ -302,6 +271,36 @@ class Products
     public function getStock(): ?int
     {
         return $this->stock;
+    }
+
+    /**
+     * @return Collection|OrderedProduct[]
+     */
+    public function getOrderedProducts(): Collection
+    {
+        return $this->orderedProducts;
+    }
+
+    public function addOrderedProduct(OrderedProduct $orderedProduct): self
+    {
+        if (!$this->orderedProducts->contains($orderedProduct)) {
+            $this->orderedProducts[] = $orderedProduct;
+            $orderedProduct->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderedProduct(OrderedProduct $orderedProduct): self
+    {
+        if ($this->orderedProducts->removeElement($orderedProduct)) {
+            // set the owning side to null (unless already changed)
+            if ($orderedProduct->getProduct() === $this) {
+                $orderedProduct->setProduct(null);
+            }
+        }
+
+        return $this;
     }
 
 
