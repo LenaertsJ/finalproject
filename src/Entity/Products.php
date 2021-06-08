@@ -53,7 +53,7 @@ class Products
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity=Prices::class, mappedBy="product")
+     * @ORM\OneToMany(targetEntity=Prices::class, mappedBy="product", cascade={"persist", "remove"})
      * @Groups({"products:read"})
      */
     private $prices;

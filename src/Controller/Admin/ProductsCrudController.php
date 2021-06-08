@@ -3,11 +3,13 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Products;
+use App\Form\PriceType;
 use Doctrine\Common\Collections\ArrayCollection;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -35,7 +37,7 @@ class ProductsCrudController extends AbstractCrudController
             AssociationField::new('category'),
             AssociationField::new('plants')->setTemplatePath('list.html.twig'),
             NumberField::new('stock'),
-//            NumberField::new('prices')
+            CollectionField::new('prices')->setEntryType(PriceType::class)->setFormTypeOption('by_reference', false),
             AssociationField::new('prices', 'bruto price')->onlyOnIndex()->setTemplatePath('price.html.twig'),
 
         ];

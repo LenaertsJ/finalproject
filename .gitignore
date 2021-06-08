@@ -17,3 +17,6 @@
 ###< symfony/phpunit-bridge ###
 
 todo.md
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###

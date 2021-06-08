@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4791d89f-45fa-4632-99ba-99bfa5aad383" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deherborist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deherborist.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Address.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/OrderStatus.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/OrderedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/OrderedProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/OrdersCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/OrdersCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/PlantsCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/PlantsCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/ProductsCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/ProductsCrudController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/AttachmentType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ResourceType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ResourceType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +143,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/uid" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-uuid" />
       <path value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1sQm7zCw6mIhdWzkeJSeGabgNPw" />
@@ -187,7 +197,8 @@
       <workItem from="1622906766418" duration="148000" />
       <workItem from="1622907333370" duration="397000" />
       <workItem from="1622907981419" duration="3668000" />
-      <workItem from="1623067590851" duration="9151000" />
+      <workItem from="1623067590851" duration="9292000" />
+      <workItem from="1623152198997" duration="7716000" />
     </task>
     <servers />
   </component>
@@ -209,9 +220,10 @@
     </state>
     <state x="-826" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816/-1920.-17.1920.1055@-1920.-17.1920.1055" timestamp="1621527648076" />
     <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816@0.25.1440.816" timestamp="1622111744714" />
-    <state x="559" y="171" key="NewPhpClassDialog" timestamp="1623069750525">
-      <screen x="0" y="25" width="1440" height="875" />
+    <state x="-1145" y="176" key="NewPhpClassDialog" timestamp="1623158921921">
+      <screen x="-1920" y="-17" width="1920" height="1055" />
     </state>
+    <state x="-1145" y="176" key="NewPhpClassDialog/0.25.1440.816/-1920.-17.1920.1055@-1920.-17.1920.1055" timestamp="1623158921921" />
     <state x="559" y="161" key="NewPhpClassDialog/0.25.1440.816@0.25.1440.816" timestamp="1622821733440" />
     <state x="559" y="171" key="NewPhpClassDialog/0.25.1440.875/-1920.-17.1920.996@0.25.1440.875" timestamp="1623069750525" />
   </component>
