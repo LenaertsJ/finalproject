@@ -97,7 +97,7 @@ class Plants
         $this->updatedAt = new \DateTime();
         $this->qualities = new ArrayCollection();
         $this->products = new ArrayCollection();
-        $this->imageUrl = "http://localhost:8000/resources/images/" . $this->image;
+//        $this->imageUrl = "http://localhost:8000/resources/images/" . $this->image;
     }
 
     public function getId(): ?int
@@ -202,7 +202,7 @@ class Plants
         $this->imageFile = $imageFile;
         if($imageFile){
             $this->updatedAt = new \DateTime();
-            $this->imageUrl = "http://localhost:8000/resources/images/" . $this->image;
+            $this->imageUrl = "http://localhost/deherborist/public/resources/image.php/" . $this->name . ".jpg?image=/deherborist/public/resources/images/" . $this->image;
         }
     }
 

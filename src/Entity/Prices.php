@@ -87,7 +87,7 @@ class Prices
         $this->nettoPrice = $nettoPrice;
         if($nettoPrice)
         {
-            $this->brutoPrice = round($nettoPrice + ($nettoPrice * .21), 1);
+            $this->brutoPrice = round($nettoPrice + ($nettoPrice * .21), 2);
         }
 
         return $this;

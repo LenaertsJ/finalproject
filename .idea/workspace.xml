@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4791d89f-45fa-4632-99ba-99bfa5aad383" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deherborist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deherborist.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/resources/image.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/resources/imagecache/0a1704f079b465e4eabb942bd9b83587" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/resources/imagecache/60c11287f12f77f176d885e9e28020a0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/resources/imagecache/7429e0b6bf12c68935a1590deda9cfa1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/resources/imagecache/f627a08a8c231339cbf70ba5b129b2da" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/OrdersCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/OrdersCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/PlantsCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/PlantsCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/ProductsCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/ProductsCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Plants.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Plants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Prices.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Prices.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AttachmentType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ResourceType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ResourceType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/StringFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/StringFunctions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,13 +154,17 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/resources/images" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/resources/images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/resources" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -199,6 +200,8 @@
       <workItem from="1622907981419" duration="3668000" />
       <workItem from="1623067590851" duration="9292000" />
       <workItem from="1623152198997" duration="7716000" />
+      <workItem from="1623410123449" duration="190000" />
+      <workItem from="1623513260735" duration="5949000" />
     </task>
     <servers />
   </component>
@@ -220,11 +223,16 @@
     </state>
     <state x="-826" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816/-1920.-17.1920.1055@-1920.-17.1920.1055" timestamp="1621527648076" />
     <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816@0.25.1440.816" timestamp="1622111744714" />
-    <state x="-1145" y="176" key="NewPhpClassDialog" timestamp="1623158921921">
-      <screen x="-1920" y="-17" width="1920" height="1055" />
+    <state x="581" y="174" key="NewPhpClassDialog" timestamp="1623520473076">
+      <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state x="-1145" y="176" key="NewPhpClassDialog/0.25.1440.816/-1920.-17.1920.1055@-1920.-17.1920.1055" timestamp="1623158921921" />
+    <state x="581" y="174" key="NewPhpClassDialog/0.25.1440.816/-1920.-17.1920.1055@0.25.1440.816" timestamp="1623520473076" />
     <state x="559" y="161" key="NewPhpClassDialog/0.25.1440.816@0.25.1440.816" timestamp="1622821733440" />
     <state x="559" y="171" key="NewPhpClassDialog/0.25.1440.875/-1920.-17.1920.996@0.25.1440.875" timestamp="1623069750525" />
+    <state x="541" y="384" key="NewPhpFileDialog" timestamp="1623514054683">
+      <screen x="0" y="25" width="1440" height="816" />
+    </state>
+    <state x="541" y="384" key="NewPhpFileDialog/0.25.1440.816/-1920.-17.1920.1055@0.25.1440.816" timestamp="1623514054683" />
   </component>
 </project>

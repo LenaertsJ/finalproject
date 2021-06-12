@@ -12,7 +12,7 @@ class StringFunctions
     }
 
     public function removeTags($str){
-        return strip_tags($str);
+        return strip_tags($str, "<b><i>");
     }
 
 }

@@ -94,7 +94,7 @@ class Products
     private $stock;
 
     /**
-     * @ORM\OneToMany(targetEntity=OrderedProduct::class, mappedBy="product")
+     * @ORM\OneToMany(targetEntity=OrderedProduct::class, mappedBy="product", cascade={})
      */
     private $orderedProducts;
 
@@ -103,7 +103,7 @@ class Products
         $this->updatedAt = new \DateTime();
         $this->prices = new ArrayCollection();
         $this->plants = new ArrayCollection();
-        $this->imageUrl = "http://localhost:8000/resources/images/" . $this->image;
+//        $this->imageUrl = "http://localhost/deherborist/public/resources/image.php/" . $this->name . "?image=/deherborist/public/resources/images/" . $this->image;
         $this->orderedProducts = new ArrayCollection();
     }
 
@@ -188,7 +188,8 @@ class Products
         $this->imageFile = $imageFile;
         if($imageFile){
             $this->updatedAt = new \DateTime();
-            $this->imageUrl = "http://localhost:8000/resources/images/" . $this->image;
+            $this->imageUrl = "http://localhost/deherborist/public/resources/image.php/" . $this->name . ".jpg?image=/deherborist/public/resources/images/" . $this->image;
+
         }
     }
 
