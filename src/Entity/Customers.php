@@ -28,31 +28,29 @@ class Customers
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"customers:read", "address:write"})
+     * @Groups({"address:write"})
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"customers:read", "address:write"})
+     * @Groups({"address:write"})
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"customers:read", "address:write"})
+     * @Groups({"address:write"})
      */
     private $email;
 
     /**
      * @ORM\ManyToMany(targetEntity=Address::class, inversedBy="customers")
-     * @Groups({"customers:read"})
      */
     private $address;
 
     /**
      * @ORM\OneToMany(targetEntity=Orders::class, mappedBy="customer")
-     * @Groups({"customers:read"})
      */
     private $orders;
 

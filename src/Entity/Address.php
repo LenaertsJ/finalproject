@@ -28,31 +28,31 @@ class Address
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"address:read", "address:write"})
+     * @Groups({"address:write"})
      */
     private $street;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"address:read", "address:write"})
+     * @Groups({"address:write"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"address:read", "address:write"})
+     * @Groups({"address:write"})
      */
     private $country;
 
     /**
      * @ORM\Column(type="smallint")
-     * @Groups({"address:read", "address:write"})
+     * @Groups({"address:write"})
      */
     private $postalCode;
 
     /**
      * @ORM\Column(type="smallint")
-     * @Groups({"address:read", "address:write"})
+     * @Groups({"address:write"})
      */
     private $houseNumber;
 

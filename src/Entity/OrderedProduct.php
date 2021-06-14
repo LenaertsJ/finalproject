@@ -20,7 +20,7 @@ class OrderedProduct
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"orderedProduct:read"})
+     * @Groups({"orderedProduct:read", "orders:read"})
      */
     private $id;
 
@@ -33,19 +33,19 @@ class OrderedProduct
     /**
      * @ORM\ManyToOne(targetEntity=Products::class, inversedBy="orderedProducts", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"orders:read", "orders:write"})
+     * @Groups({"orders:write"})
      */
     private $product;
 
     /**
      * @ORM\Column(type="float")
-     * @Groups({"orders:read", "orders:write"})
+     * @Groups({"orders:write"})
      */
     private $price;
 
     /**
      * @ORM\Column(type="smallint")
-     * @Groups({"orders:read", "orders:write"})
+     * @Groups({"orders:write"})
      */
     private $quantity;
 

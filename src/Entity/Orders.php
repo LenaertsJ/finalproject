@@ -28,32 +28,31 @@ class Orders
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups({"orders:read"})
      */
     private $order_date;
 
     /**
      * @ORM\ManyToOne(targetEntity=Address::class, inversedBy="orders")
      * @ORM\JoinColumn(nullable=true)
-     * @Groups({"orders:read", "orders:write"})
+     * @Groups({"orders:write"})
      */
     private $address;
 
     /**
      * @ORM\Column(type="float", nullable=true)
-     * @Groups({"orders:read", "orders:write"})
+     * @Groups({"orders:write"})
      */
     private $totalPrice;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @Groups({"orders:read", "orders:write"})
+     * @Groups({"orders:write"})
      */
     private $totalItems;
 
     /**
      * @ORM\ManyToOne(targetEntity=Customers::class, inversedBy="orders")
-     * @Groups({"orders:read", "orders:write"})
+     * @Groups({"orders:write"})
      */
     private $customer;
 
