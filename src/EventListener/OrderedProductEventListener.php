@@ -29,6 +29,10 @@ class OrderedProductEventListener
 
             $stock = $product->getStock();
             $newStock = $stock - $entity->getQuantity();
+            if($newStock < 0)
+            {
+                $newStock = 0;
+            }
             $product->setStock($newStock);
 
             $this->entityManager->persist($product);

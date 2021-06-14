@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ProductsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -19,6 +20,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *     denormalizationContext={"groups"={"products:write"}}
  * )
  * @ApiFilter(SearchFilter::class, properties={"category.name":"partial"})
+ * @ApiFilter(RangeFilter::class, properties={"stock"})
  * @ORM\Entity(repositoryClass=ProductsRepository::class)
  * @Vich\Uploadable
  */
