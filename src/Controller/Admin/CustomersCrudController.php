@@ -18,11 +18,11 @@ class CustomersCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
+            IdField::new('id', 'ID')->onlyOnIndex(),
             TextField::new('firstname'),
             TextField::new('lastname'),
             TextField::new('email'),
-            AssociationField::new('address')
+            AssociationField::new('address')->setTemplatePath('list.html.twig')
         ];
     }
 

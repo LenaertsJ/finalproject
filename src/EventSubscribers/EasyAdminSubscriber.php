@@ -7,10 +7,12 @@ namespace App\EventSubscribers;
 use App\Entity\Plants;
 use App\Entity\Products;
 use App\Entity\Qualities;
+use App\Entity\User;
 use App\services\StringFunctions;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Entity;
 use EasyCorp\Bundle\EasyAdminBundle\Event\AfterEntityPersistedEvent;
+use EasyCorp\Bundle\EasyAdminBundle\Event\AfterEntityUpdatedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class EasyAdminSubscriber implements EventSubscriberInterface
@@ -28,7 +30,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return[
-            AfterEntityPersistedEvent::class => ['stripTags'],
+            AfterEntityPersistedEvent::class => ['stripTags']
         ];
     }
 

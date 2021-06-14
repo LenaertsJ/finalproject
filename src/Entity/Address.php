@@ -84,7 +84,7 @@ class Address
 
     public function __toString()
     {
-        return $this->street;
+        return $this->street . ' ' . strval($this->houseNumber) . ', ' . strval($this->postalCode) . ' ' . $this->city . ', ' . $this->country;
     }
 
     public function getId(): ?int

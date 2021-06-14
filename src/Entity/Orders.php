@@ -62,11 +62,17 @@ class Orders
      */
     private $orderedProducts;
 
+    /**
+     * @ORM\Column(type="string", length=25, nullable=true)
+     */
+    private $status;
+
 
     public function __construct()
     {
         $this->order_date = new \DateTime();
         $this->orderedProducts = new ArrayCollection();
+        $this->status = "Processing";
     }
 
     public function getId(): ?int
@@ -160,6 +166,18 @@ class Orders
                 $orderedProduct->setOrderedProdOrder(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?string $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

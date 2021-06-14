@@ -52,6 +52,16 @@ class User implements UserInterface
      */
     private $address;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isAdmin;
+
+    public function __construct()
+    {
+        $this->isAdmin = 0;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -165,6 +175,18 @@ class User implements UserInterface
     public function setAddress(?Address $address): self
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    public function getIsAdmin(): ?bool
+    {
+        return $this->isAdmin;
+    }
+
+    public function setIsAdmin(?bool $isAdmin): self
+    {
+        $this->isAdmin = $isAdmin;
 
         return $this;
     }

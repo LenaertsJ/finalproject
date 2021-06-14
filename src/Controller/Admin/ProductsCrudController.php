@@ -37,7 +37,6 @@ class ProductsCrudController extends AbstractCrudController
             AssociationField::new('plants')->setTemplatePath('list.html.twig'),
             NumberField::new('stock')->setTextAlign('right'),
             CollectionField::new('prices', 'bruto price (EUR)')->setEntryType(PriceType::class)->setFormTypeOption('by_reference', false)->setTextAlign('right'),
-//            AssociationField::new('prices', 'bruto price')->onlyOnIndex()->setTemplatePath('price.html.twig'),
 
         ];
 

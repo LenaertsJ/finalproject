@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -23,10 +24,11 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('email'),
-            TextField::new('firstname'),
-            TextField::new('lastname'),
+            IdField::new('id', 'ID')->onlyOnIndex(),
+            TextField::new('email', 'Email'),
+            TextField::new('firstname', 'Firstname'),
+            TextField::new('lastname', 'Lastname'),
+            BooleanField::new('isAdmin', 'Admin permission')
         ];
     }
 

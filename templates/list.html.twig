@@ -1,9 +1,11 @@
-<ul class="form-widget" style="list-style-type: none">
+<ul class="form-widget" style="list-style-type: none;">
     {% for item in field.value %}
-{#        {% if item.product %}#}
-{#            <li>{{ item.product }}</li>#}
-{#        {% else %}#}
+        {% if item.product is defined %}
+            <li>{{ item.product }}</li>
+        {% elseif item.street is defined %}
+            <li>{{ item.street }} {{ item.housenumber }}, {{ item.postalCode }} {{ item.city }} | {{ item.country }}</li>
+        {% else %}
             <li>{{ item.name }}</li>
-{#        {% endif %}#}
+        {% endif %}
     {% endfor %}
 </ul>
