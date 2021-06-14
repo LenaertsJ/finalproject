@@ -29,7 +29,9 @@ class ProductsCrudController extends AbstractCrudController
         $imageFile = TextField::new('imageFile')->setFormType(VichImageType::class);
         $fields = [
             IdField::new('id', 'ID')->hideOnForm(),
-            TextField::new('name'),
+            TextField::new('name')->formatValue(function ($value){
+                return ucfirst($value);
+            }),
             TextEditorField::new('description'),
             AssociationField::new('category'),
             AssociationField::new('plants')->setTemplatePath('list.html.twig'),

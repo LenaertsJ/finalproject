@@ -1,5 +1,9 @@
 <ul class="form-widget" style="list-style-type: none">
     {% for item in field.value %}
-    <li>{{ item.name }}</li>
+{#        {% if item.product %}#}
+{#            <li>{{ item.product }}</li>#}
+{#        {% else %}#}
+            <li>{{ item.name }}</li>
+{#        {% endif %}#}
     {% endfor %}
 </ul>

@@ -2,18 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4791d89f-45fa-4632-99ba-99bfa5aad383" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/resources/image.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/resources/imagecache/0a1704f079b465e4eabb942bd9b83587" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/resources/imagecache/60c11287f12f77f176d885e9e28020a0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/resources/imagecache/7429e0b6bf12c68935a1590deda9cfa1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/resources/imagecache/f627a08a8c231339cbf70ba5b129b2da" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/CustomersCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/CustomersCrudController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/OrdersCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/OrdersCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/PlantsCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/PlantsCrudController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/ProductsCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/ProductsCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/QualitiesCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/QualitiesCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Customers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Customers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/OrderedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/OrderedProduct.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Plants.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Plants.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Prices.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Prices.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventSubscribers/EasyAdminSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventSubscribers/EasyAdminSubscriber.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/StringFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/StringFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/price.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/price.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +207,10 @@
       <workItem from="1623067590851" duration="9292000" />
       <workItem from="1623152198997" duration="7716000" />
       <workItem from="1623410123449" duration="190000" />
-      <workItem from="1623513260735" duration="5949000" />
+      <workItem from="1623513260735" duration="6364000" />
+      <workItem from="1623591366271" duration="4529000" />
+      <workItem from="1623605801977" duration="3500000" />
+      <workItem from="1623658774457" duration="6482000" />
     </task>
     <servers />
   </component>
@@ -214,6 +223,10 @@
     </state>
     <state x="-730" y="107" key="#com.intellij.ide.util.MemberChooser/0.25.1440.816/-1920.-17.1920.1055@-1920.-17.1920.1055" timestamp="1621525419565" />
     <state x="893" y="121" key="#com.intellij.ide.util.MemberChooser/0.25.1440.816@0.25.1440.816" timestamp="1621612287221" />
+    <state x="746" y="25" width="694" height="816" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1623684030718">
+      <screen x="0" y="25" width="1440" height="816" />
+    </state>
+    <state x="746" y="25" width="694" height="816" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.25.1440.816/-1920.-17.1920.1055@0.25.1440.816" timestamp="1623684030718" />
     <state x="459" y="221" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1623084024938">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -223,11 +236,11 @@
     </state>
     <state x="-826" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816/-1920.-17.1920.1055@-1920.-17.1920.1055" timestamp="1621527648076" />
     <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816@0.25.1440.816" timestamp="1622111744714" />
-    <state x="581" y="174" key="NewPhpClassDialog" timestamp="1623520473076">
+    <state x="581" y="174" key="NewPhpClassDialog" timestamp="1623681741108">
       <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state x="-1145" y="176" key="NewPhpClassDialog/0.25.1440.816/-1920.-17.1920.1055@-1920.-17.1920.1055" timestamp="1623158921921" />
-    <state x="581" y="174" key="NewPhpClassDialog/0.25.1440.816/-1920.-17.1920.1055@0.25.1440.816" timestamp="1623520473076" />
+    <state x="581" y="174" key="NewPhpClassDialog/0.25.1440.816/-1920.-17.1920.1055@0.25.1440.816" timestamp="1623681741108" />
     <state x="559" y="161" key="NewPhpClassDialog/0.25.1440.816@0.25.1440.816" timestamp="1622821733440" />
     <state x="559" y="171" key="NewPhpClassDialog/0.25.1440.875/-1920.-17.1920.996@0.25.1440.875" timestamp="1623069750525" />
     <state x="541" y="384" key="NewPhpFileDialog" timestamp="1623514054683">

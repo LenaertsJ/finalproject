@@ -82,6 +82,11 @@ class Address
         $this->customers = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->street;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

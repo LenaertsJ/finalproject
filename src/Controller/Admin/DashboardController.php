@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Address;
 use App\Entity\Categories;
 use App\Entity\Families;
 use App\Entity\Orders;
@@ -51,5 +52,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Prices', 'fas fa-euro-sign', Prices::class);
         yield MenuItem::linkToCrud('Orders', 'fas fa-boxes', Orders::class)->setDefaultSort(['order_date' => 'DESC']);
         yield MenuItem::linkToCrud('Customers', 'fas fa-user', User::class);
+        yield MenuItem::linkToCrud('Address', 'fas fa-map-marked-alt', Address::class);
     }
 }

@@ -103,7 +103,6 @@ class Products
         $this->updatedAt = new \DateTime();
         $this->prices = new ArrayCollection();
         $this->plants = new ArrayCollection();
-//        $this->imageUrl = "http://localhost/deherborist/public/resources/image.php/" . $this->name . "?image=/deherborist/public/resources/images/" . $this->image;
         $this->orderedProducts = new ArrayCollection();
     }
 

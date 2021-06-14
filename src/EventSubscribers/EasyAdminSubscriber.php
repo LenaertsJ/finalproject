@@ -7,49 +7,43 @@ namespace App\EventSubscribers;
 use App\Entity\Plants;
 use App\Entity\Products;
 use App\Entity\Qualities;
-use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
+use App\services\StringFunctions;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping\Entity;
+use EasyCorp\Bundle\EasyAdminBundle\Event\AfterEntityPersistedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class EasyAdminSubscriber implements EventSubscriberInterface
 {
 
     private $stringFunctions;
+    private $entityManager;
 
-    public function __construct($stringFunctions){
+    public function __construct(StringFunctions $stringFunctions, EntityManagerInterface $entityManager){
         $this->stringFunctions = $stringFunctions;
+        $this->entityManager = $entityManager;
     }
 
 
     public static function getSubscribedEvents()
     {
-        // TODO: Implement getSubscribedEvents() method.
         return[
-            BeforeEntityPersistedEvent::class => ['setImageSlug'],
+            AfterEntityPersistedEvent::class => ['stripTags'],
         ];
     }
 
-    public function setImageSlug(BeforeEntityPersistedEvent $event){
+    public function stripTags(AfterEntityPersistedEvent $event){
         $entity = $event->getEntityInstance();
-        if (!($entity instanceof Products) || !($entity instanceof Plants)){
-            return;
-        }
-
-        $slug = $this->stringFunctions->slugify($entity->getImage());
-        $entity->setImage($slug);
-    }
-
-    public function stripTags(BeforeEntityPersistedEvent $event){
-        $entity = $event->getEntityInstance();
-        if (!($entity instanceof Products) || !($entity instanceof Plants) || !($entity instanceof Qualities)){
-            return;
-        }
-
-        if($entity instanceof Plants){
-            $stripped = $this->stringFunctions->strip_tags($entity->getSymbolism());
+        if (($entity instanceof Products) || ($entity instanceof Qualities)){
+            $stripped = $this->stringFunctions->removeTags($entity->getDescription());
+            $entity->setDescription($stripped);
+        } elseif ($entity instanceof Plants){
+            $stripped = $this->stringFunctions->removeTags($entity->getSymbolism());
             $entity->setSymbolism($stripped);
+        } else {
+            return;
         }
-
-        $stripped = $this->stringFunctions->strip_tags($entity->getDescription());
-        $entity->setDescription($stripped);
+        $this->entityManager->persist($entity);
+        $this->entityManager->flush();
     }
 }

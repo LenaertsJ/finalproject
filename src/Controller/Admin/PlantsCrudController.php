@@ -38,13 +38,13 @@ class PlantsCrudController extends AbstractCrudController
 //        $imageFile = $this->stringFunctions->slugify($imageFile);
         $fields = [
             IdField::new('id', 'ID')->hideOnForm(),
-            TextField::new('name')->formatValue(function ($value){
+            TextField::new('name', 'Name')->formatValue(function ($value){
                 return ucfirst($value);
             }),
-            TextField::new('latin_name'),
-            TextEditorField::new('symbolism'),
-            AssociationField::new('family')->setCrudController(FamiliesCrudController::class),
-            AssociationField::new('qualities')->setRequired(true)
+            TextField::new('latin_name', 'Latin name'),
+            TextEditorField::new('symbolism', 'Symbolism')->setRequired(true),
+            AssociationField::new('family', 'Family'),
+            AssociationField::new('qualities', 'Qualities')->setRequired(true)
                 ->setTemplatePath('list.html.twig')
         ];
 
