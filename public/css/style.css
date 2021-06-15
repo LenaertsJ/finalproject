@@ -1,52 +1,82 @@
 body{
-    background-color: #0B7FC7;
+    background-color: #fbecf6;
+    font-family: Garamond;
+}
+
+.img-container{
+    text-align: center;
+    margin-top: 8%;
+}
+.img-container-register{
+    margin-top: 5%;
+}
+
+img{
+    width: 8%;
+}
+.register{
+    width: 5%;
 }
 
 .container{
-    width: 50%;
-    margin: 0 auto;
-    padding: 12%;
-    min-height: 100vh;
+    width: 30%;
+    margin: 10px auto 0px auto;
+    min-height: 45%;
 }
 
 .form-wrapper{
-    display: flex;
-    justify-content: center;
-    margin-top: 60px;
-}
-
-.login-wrapper{
+    width: 85%;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    align-content: center;
+    margin-top: 60px;
+    /*text-align: center;*/
+    text-transform: uppercase;
+    font-size: 20px;
+    border-left: 2px solid cadetblue;
+    border-right: 2px solid orange;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+label{
+    width: fit-content;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    color: #822958;
 }
 
 .input-field{
-    margin: 10px;
+    /*margin: 10px;*/
+    width: 100%;
     line-height: 35px;
-    display:block;
+    margin-bottom: 30px;
 }
 
 input{
-    border-radius: 20px;
     border: none;
-    width: 100%;
     outline: none;
-    padding-left: 10px;
-    padding-right: 10px;
     background-color: rgba(255, 255, 255, 0.6);
+    font-family: Garamond;
+    font-size: 17px;
+    padding-left: 3px;
 }
 
 button{
     margin-top: 50px;
-    line-height: 20px;
-    background-color: rgba(255, 255, 255, 0.6);
-    border: black 1px solid;
-    border-radius: 5px;
+    line-height: 30px;
+    background-color: #822958;
+    border-radius: 10px;
+    border: none;
+    width: 30%;
+    font-family: Copperplate;
+    font-size: 16px;
+    color: #fbecf6;
 }
 
 .title{
     text-align: center;
     text-transform: uppercase;
+    color: #822958;
 }
 
