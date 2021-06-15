@@ -62,16 +62,34 @@ input{
     padding-left: 3px;
 }
 
-button{
+.btn-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn{
     margin-top: 50px;
     line-height: 30px;
     background-color: #822958;
+    border: 1px solid #822958;
     border-radius: 10px;
     border: none;
     width: 30%;
     font-family: Copperplate;
     font-size: 16px;
     color: #fbecf6;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn:hover{
+    border: 1px solid #822958;
+    background-color: transparent;
+    color: #822958;
+}
+
+a{
+    text-decoration: none;
 }
 
 .title{

@@ -25,10 +25,14 @@
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
-
+<div class="btn-container">
     <button class="btn btn-lg btn-primary" type="submit">
         Sign in
     </button>
+            <a href="./register" class="btn btn-lg btn-primary" type="submit">
+                Register
+            </a>
+        </div>
 </form>
     </div>
     </div>

@@ -48,12 +48,12 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Families', 'fab fa-pagelines', Families::class);
         yield MenuItem::linkToCrud('Qualities', 'fas fa-mortar-pestle', Qualities::class);
         yield MenuItem::section('Webshop');
-        yield MenuItem::linkToCrud('Categories', 'far fa-copy', Categories::class);
-        yield MenuItem::linkToCrud('Products', 'fas fa-palette', Products::class);
-        yield MenuItem::linkToCrud('Orders', 'fas fa-boxes', Orders::class)->setDefaultSort(['order_date' => 'DESC']);
-        yield MenuItem::linkToCrud('Customers', 'fas fa-user', Customers::class);
+        yield MenuItem::linkToCrud('Categories', 'far fa-copy', Categories::class)->setPermission("ROLE_SUPER_ADMIN");
+        yield MenuItem::linkToCrud('Products', 'fas fa-palette', Products::class)->setPermission("ROLE_SUPER_ADMIN");
+        yield MenuItem::linkToCrud('Orders', 'fas fa-boxes', Orders::class)->setDefaultSort(['order_date' => 'DESC'])->setPermission("ROLE_SUPER_ADMIN");
+        yield MenuItem::linkToCrud('Customers', 'fas fa-user', Customers::class)->setPermission("ROLE_SUPER_ADMIN");
 //        yield MenuItem::linkToCrud('Address', 'fas fa-map-marked-alt', Address::class);
         yield MenuItem::section('Admin');
-        yield MenuItem::linkToCrud('Admin users', 'fas fa-user', User::class);
+        yield MenuItem::linkToCrud('Admin users', 'fas fa-user', User::class)->setPermission("ROLE_SUPER_ADMIN");
     }
 }
