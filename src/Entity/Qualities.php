@@ -13,7 +13,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ApiResource(
  *     normalizationContext={"groups"={"qualities:read"}},
- *     denormalizationContext={"groups"={"qualities:write"}}
+ *     denormalizationContext={"groups"={"qualities:write"}},
+ *     collectionOperations={"get"},
+ *     itemOperations={"get"}
  * )
  * @ApiFilter(SearchFilter::class, properties={"name":"partial"})
  * @ORM\Entity(repositoryClass=QualitiesRepository::class)
@@ -30,7 +32,7 @@ class Qualities
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"qualities:read", "qualities:write", "plants:read"})
+     * @Groups({"qualities:read", "plants:read"})
      */
     private $name;
 
@@ -39,7 +41,7 @@ class Qualities
      *
      * @var Plants[]
      * @ORM\ManyToMany(targetEntity="Plants", mappedBy="qualities")
-     * @Groups({"qualities:read", "qualities:write"})
+     * @Groups({"qualities:read"})
      */
     protected $plants;
 

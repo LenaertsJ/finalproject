@@ -10,9 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource(
- *     normalizationContext={"groups"={"family"}}
- * )
  * @ORM\Entity(repositoryClass=FamiliesRepository::class)
  */
 class Families
@@ -26,12 +23,12 @@ class Families
 
     /**
      * @ORM\Column(type="string", length=150)
+     * @Groups({"plants:read"})
      */
     private $name;
 
     /**
      * @ORM\OneToMany(targetEntity=Plants::class, mappedBy="family")
-     * @Groups({"family"})
      */
     private $plants;
 

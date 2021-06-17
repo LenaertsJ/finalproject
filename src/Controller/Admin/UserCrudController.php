@@ -28,7 +28,7 @@ class UserCrudController extends AbstractCrudController
             TextField::new('email', 'Email'),
             TextField::new('firstname', 'Firstname'),
             TextField::new('lastname', 'Lastname'),
-            BooleanField::new('isAdmin', 'Admin permission')
+            BooleanField::new('isAdmin', 'Admin permission')->setPermission("ROLE_SUPER_ADMIN")
         ];
     }
 

@@ -13,7 +13,7 @@
             You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
-    <div class="img-container"><img src="./resources/images/logo-herborist.svg" /></div>
+    <div class="img-container"><img src={{ asset("resources/images/logo-herborist.svg") }} /></div>
     <div class="container">
     <h1 class="h3 mb-3 font-weight-normal title">sign in</h1>
         <div class="form-wrapper">

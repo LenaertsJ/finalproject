@@ -10,7 +10,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ApiResource(
  *     normalizationContext={"groups"={"orderedProduct:read"}},
- *     denormalizationContext={"groups"={"orderedProduct:write"}}
+ *     denormalizationContext={"groups"={"orderedProduct:write"}},
+ *     collectionOperations={"get", "post"},
+ *     itemOperations={"get"},
  * )
  * @ORM\Entity(repositoryClass=OrderedProductRepository::class)
  */

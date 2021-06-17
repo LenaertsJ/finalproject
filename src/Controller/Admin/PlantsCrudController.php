@@ -18,12 +18,6 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class PlantsCrudController extends AbstractCrudController
 {
-    private $stringFunctions;
-
-    public function __construct(StringFunctions $stringFunctions)
-    {
-        $this->stringFunctions = $stringFunctions;
-    }
 
     public static function getEntityFqcn(): string
     {
@@ -34,8 +28,7 @@ class PlantsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         $image = ImageField::new('image')->setBasePath('resources/images');
-        $imageFile = TextField::new('imageFile')->setFormType(VichImageType::class);
-//        $imageFile = $this->stringFunctions->slugify($imageFile);
+        $imageFile = TextField::new('imageFile')->setFormType(VichImageType::class)->setRequired(true);
         $fields = [
             IdField::new('id', 'ID')->hideOnForm(),
             TextField::new('name', 'Name')->formatValue(function ($value){

@@ -16,7 +16,9 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 /**
  * @ApiResource(
  *     normalizationContext={"groups"={"plants:read"}},
- *     denormalizationContext={"groups"={"plants:write"}}
+ *     denormalizationContext={"groups"={"plants:write"}},
+ *     collectionOperations={"get"},
+ *     itemOperations={"get"}
  * )
  * @ApiFilter(SearchFilter::class, properties={"name":"partial"})
  * @ORM\Entity(repositoryClass=PlantsRepository::class)

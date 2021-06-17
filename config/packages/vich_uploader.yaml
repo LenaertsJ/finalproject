@@ -3,8 +3,8 @@ vich_uploader:
 
     mappings:
         images:
-            uri_prefix: /resources/images
-            upload_destination: '%kernel.project_dir%/public/resources/images'
+            uri_prefix: 'https://wdev2.be/julie21/eindwerk/resources/images'
+            upload_destination: '/var/www/html/wdev2.be/web/julie21/eindwerk/resources/images'
             namer:
                 service: vich_uploader.namer_uniqid
 

@@ -6,7 +6,7 @@
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-    <div class="img-container img-container-register"><img class="register" src="./resources/images/logo-herborist.svg" /></div>
+    <div class="img-container img-container-register"><img class="register" src={{ asset("resources/images/logo-herborist.svg") }} /></div>
 <div class="container">
     <h1 class="title">Register</h1>
     <div class="form-wrapper">
