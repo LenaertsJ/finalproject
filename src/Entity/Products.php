@@ -17,7 +17,9 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 /**
  * @ApiResource(
  *     normalizationContext={"groups"={"products:read"}},
- *     denormalizationContext={"groups"={"products:write"}}
+ *     denormalizationContext={"groups"={"products:write"}},
+ *     collectionOperations={"get"},
+ *     itemOperations={"get"}
  * )
  * @ApiFilter(SearchFilter::class, properties={"category.name":"partial"})
  * @ApiFilter(RangeFilter::class, properties={"stock"})
