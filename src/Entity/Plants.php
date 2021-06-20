@@ -94,6 +94,11 @@ class Plants
      */
     private $products;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $medicinalInfo;
+
     public function __construct()
     {
         $this->updatedAt = new \DateTime();
@@ -203,7 +208,7 @@ class Plants
         $this->imageFile = $imageFile;
         if($imageFile){
             $this->updatedAt = new \DateTime();
-            $this->imageUrl = "http://localhost/deherborist/public/resources/image.php/" . $this->name . ".jpg?image=/deherborist/public/resources/images/" . $this->image;
+            $this->imageUrl = "https://wdev2.be/julie21/eindwerk/resources/image.php/" . $this->name . ".jpg?image=/julie21/eindwerk/resources/images/" . $this->image;
         }
     }
 
@@ -295,6 +300,18 @@ class Plants
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getMedicinalInfo(): ?string
+    {
+        return $this->medicinalInfo;
+    }
+
+    public function setMedicinalInfo(?string $medicinalInfo): self
+    {
+        $this->medicinalInfo = $medicinalInfo;
+
+        return $this;
     }
 
 }

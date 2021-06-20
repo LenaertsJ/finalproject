@@ -4,11 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\Address;
 use App\Entity\Categories;
-use App\Entity\Customers;
 use App\Entity\Families;
 use App\Entity\Orders;
 use App\Entity\Plants;
-use App\Entity\Prices;
 use App\Entity\Products;
 use App\Entity\Qualities;
 use App\Entity\User;
@@ -36,8 +34,8 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('<img style="margin-right:20px;" src="../../../resources/images/logo-herborist.svg"> De Herborist')
-            ->setFaviconPath("../../../resources/images/logo-herborist.svg");
+            ->setTitle('<img style="margin-right:20px;" src="resources/logo-herborist.svg"> De Herborist')
+            ->setFaviconPath('resources/logo-herborist.svg');
     }
 
     public function configureMenuItems(): iterable
@@ -51,8 +49,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Categories', 'far fa-copy', Categories::class)->setPermission("ROLE_SUPER_ADMIN");
         yield MenuItem::linkToCrud('Products', 'fas fa-palette', Products::class)->setPermission("ROLE_SUPER_ADMIN");
         yield MenuItem::linkToCrud('Orders', 'fas fa-boxes', Orders::class)->setDefaultSort(['order_date' => 'DESC'])->setPermission("ROLE_SUPER_ADMIN");
-        yield MenuItem::linkToCrud('Customers', 'fas fa-user', Customers::class)->setPermission("ROLE_SUPER_ADMIN");
-//        yield MenuItem::linkToCrud('Address', 'fas fa-map-marked-alt', Address::class);
+        yield MenuItem::linkToCrud('Address', 'fas fa-map-marked-alt', Address::class)->setPermission("ROLE_SUPER_ADMIN");
         yield MenuItem::section('Admin');
         yield MenuItem::linkToCrud('Admin users', 'fas fa-user', User::class)->setPermission("ROLE_SUPER_ADMIN");
     }

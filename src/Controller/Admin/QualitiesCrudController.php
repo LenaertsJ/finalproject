@@ -20,7 +20,6 @@ class QualitiesCrudController extends AbstractCrudController
         return [
             IdField::new('id', 'ID')->onlyOnIndex(),
             TextField::new('name', 'Name'),
-            TextEditorField::new('description', 'Description'),
         ];
     }
 

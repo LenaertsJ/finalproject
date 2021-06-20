@@ -45,12 +45,6 @@ class Qualities
      */
     protected $plants;
 
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     * @Groups({"qualities:read", "plants:read"})
-     */
-    private $description;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -64,18 +58,6 @@ class Qualities
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): self
-    {
-        $this->description = $description;
 
         return $this;
     }

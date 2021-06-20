@@ -22,12 +22,12 @@ class OrderedProduct
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"orderedProduct:read", "orders:read"})
+     * @Groups({"orders:write"})
      */
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Orders::class, inversedBy="orderedProducts")
+     * @ORM\ManyToOne(targetEntity=Orders::class, inversedBy="orderedProducts", cascade={"persist"})
      * @Groups({"orders:write"})
      */
     private $ordered_prod_order;

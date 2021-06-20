@@ -24,7 +24,7 @@ class Address
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"address:read"})
+     * @Groups({"address:read", "orders:write"})
      */
     private $id;
 
@@ -59,29 +59,39 @@ class Address
     private $houseNumber;
 
     /**
-     * @ORM\OneToMany(targetEntity=User::class, mappedBy="address")
-     */
-    private $users;
-
-    /**
      * @ORM\OneToMany(targetEntity=Orders::class, mappedBy="address")
      */
     private $orders;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Customers::class, mappedBy="address", cascade={"persist"})
-     * @Groups({"address:read", "address:write"})
+     * @ORM\Column(type="string", length=50)
+     * @Groups({"address:write"})
      */
-    private $customers;
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     * @Groups({"address:write"})
+     */
+    private $lastname;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"address:write"})
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     * @Groups({"address:write"})
+     */
+    private $phonenumber;
 
 
 
     public function __construct()
     {
-        $this->users = new ArrayCollection();
-        $this->customer = new ArrayCollection();
         $this->orders = new ArrayCollection();
-        $this->customers = new ArrayCollection();
     }
 
     public function __toString()
@@ -126,36 +136,6 @@ class Address
     public function setCountry(string $country): self
     {
         $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers(): Collection
-    {
-        return $this->users;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->setAddress($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->users->removeElement($user)) {
-            // set the owning side to null (unless already changed)
-            if ($user->getAddress() === $this) {
-                $user->setAddress(null);
-            }
-        }
 
         return $this;
     }
@@ -214,29 +194,50 @@ class Address
         return $this;
     }
 
-    /**
-     * @return Collection|Customers[]
-     */
-    public function getCustomers(): Collection
+    public function getFirstname(): ?string
     {
-        return $this->customers;
+        return $this->firstname;
     }
 
-    public function addCustomer(Customers $customer): self
+    public function setFirstname(string $firstname): self
     {
-        if (!$this->customers->contains($customer)) {
-            $this->customers[] = $customer;
-            $customer->addAddress($this);
-        }
+        $this->firstname = $firstname;
 
         return $this;
     }
 
-    public function removeCustomer(Customers $customer): self
+    public function getLastname(): ?string
     {
-        if ($this->customers->removeElement($customer)) {
-            $customer->removeAddress($this);
-        }
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getPhonenumber(): ?string
+    {
+        return $this->phonenumber;
+    }
+
+    public function setPhonenumber(?string $phonenumber): self
+    {
+        $this->phonenumber = $phonenumber;
 
         return $this;
     }

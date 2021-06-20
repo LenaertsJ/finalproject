@@ -36,6 +36,7 @@ class PlantsCrudController extends AbstractCrudController
             }),
             TextField::new('latin_name', 'Latin name'),
             TextEditorField::new('symbolism', 'Symbolism')->setRequired(true),
+            TextEditorField::new('medicinalInfo', 'Medicinal information'),
             AssociationField::new('family', 'Family'),
             AssociationField::new('qualities', 'Qualities')->setRequired(true)
                 ->setTemplatePath('list.html.twig')

@@ -3,9 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="4791d89f-45fa-4632-99ba-99bfa5aad383" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer_latest_install" beforeDir="false" afterPath="$PROJECT_DIR$/composer_latest_install" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/please_composer_install" beforeDir="false" afterPath="$PROJECT_DIR$/please_composer_install" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/CustomersCrudController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/OrdersCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/OrdersCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/PlantsCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/PlantsCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/ProductsCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/ProductsCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/QualitiesCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/QualitiesCrudController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Address.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Customers.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/OrderedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/OrderedProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Plants.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Plants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Prices.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Prices.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Qualities.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Qualities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventListener/UserEventListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/UserEventListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventSubscribers/EasyAdminSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventSubscribers/EasyAdminSubscriber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/CustomersRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +165,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="web.server" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -199,7 +218,10 @@
       <workItem from="1623743814744" duration="15381000" />
       <workItem from="1623849719664" duration="1878000" />
       <workItem from="1623915458735" duration="4348000" />
-      <workItem from="1623922330708" duration="3443000" />
+      <workItem from="1623922330708" duration="7254000" />
+      <workItem from="1623963344283" duration="877000" />
+      <workItem from="1624089427162" duration="2327000" />
+      <workItem from="1624178112798" duration="6473000" />
     </task>
     <servers />
   </component>
@@ -220,12 +242,12 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="459" y="221" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.875/-1920.-17.1920.996@0.25.1440.875" timestamp="1623084024938" />
-    <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1623708471897">
+    <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1624201709434">
       <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state x="-826" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816/-1920.-17.1920.1055@-1920.-17.1920.1055" timestamp="1621527648076" />
     <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816/-1920.-17.1920.1055@0.25.1440.816" timestamp="1623708471897" />
-    <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816@0.25.1440.816" timestamp="1622111744714" />
+    <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816@0.25.1440.816" timestamp="1624201709434" />
     <state x="581" y="174" key="NewPhpClassDialog" timestamp="1623758886247">
       <screen x="0" y="25" width="1440" height="816" />
     </state>
@@ -237,16 +259,17 @@
       <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state x="541" y="384" key="NewPhpFileDialog/0.25.1440.816/-1920.-17.1920.1055@0.25.1440.816" timestamp="1623514054683" />
-    <state x="164" y="56" key="SettingsEditor" timestamp="1623921969647">
+    <state x="246" y="55" key="SettingsEditor" timestamp="1624201911437">
       <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state x="-1701" y="23" key="SettingsEditor/0.25.1440.816/-1920.-17.1920.1055@-1920.-17.1920.1055" timestamp="1623769365053" />
     <state x="164" y="56" key="SettingsEditor/0.25.1440.816/-1920.-17.1920.1055@0.25.1440.816" timestamp="1623767721955" />
-    <state x="164" y="56" key="SettingsEditor/0.25.1440.816@0.25.1440.816" timestamp="1623921969647" />
-    <state x="-1218" y="274" width="602" height="490" key="find.popup" timestamp="1623773366367">
-      <screen x="-1920" y="-17" width="1920" height="1055" />
+    <state x="246" y="55" key="SettingsEditor/0.25.1440.816@0.25.1440.816" timestamp="1624201911437" />
+    <state x="527" y="250" width="567" height="490" key="find.popup" timestamp="1623928514128">
+      <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state x="-1218" y="274" width="602" height="490" key="find.popup/0.25.1440.816/-1920.-17.1920.1055@-1920.-17.1920.1055" timestamp="1623773366367" />
+    <state x="527" y="250" width="567" height="490" key="find.popup/0.25.1440.816@0.25.1440.816" timestamp="1623928514128" />
     <state x="386" y="165" width="670" height="676" key="search.everywhere.popup" timestamp="1623759058630">
       <screen x="0" y="25" width="1440" height="816" />
     </state>

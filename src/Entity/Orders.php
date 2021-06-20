@@ -34,32 +34,26 @@ class Orders
     private $order_date;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Address::class, inversedBy="orders")
+     * @ORM\ManyToOne(targetEntity=Address::class, inversedBy="orders", cascade={"remove"})
      * @ORM\JoinColumn(nullable=true)
-     * @Groups({"orders:write"})
+     * @Groups({"orders:read", "orders:write"})
      */
     private $address;
 
     /**
      * @ORM\Column(type="float", nullable=true)
-     * @Groups({"orders:write"})
+     * @Groups({"orders:write", "orders:read"})
      */
     private $totalPrice;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @Groups({"orders:write"})
+     * @Groups({"orders:write", "orders:read"})
      */
     private $totalItems;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Customers::class, inversedBy="orders")
-     * @Groups({"orders:write"})
-     */
-    private $customer;
-
-    /**
-     * @ORM\OneToMany(targetEntity=OrderedProduct::class, mappedBy="ordered_prod_order", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=OrderedProduct::class, mappedBy="ordered_prod_order", cascade={"persist", "remove"})
      * @Groups({"orders:read", "orders:write"})
      */
     private $orderedProducts;
@@ -126,18 +120,6 @@ class Orders
     public function setTotalItems(?int $totalItems): self
     {
         $this->totalItems = $totalItems;
-
-        return $this;
-    }
-
-    public function getCustomer(): ?Customers
-    {
-        return $this->customer;
-    }
-
-    public function setCustomer(?Customers $customer): self
-    {
-        $this->customer = $customer;
 
         return $this;
     }

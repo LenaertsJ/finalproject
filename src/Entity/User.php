@@ -48,11 +48,6 @@ class User implements UserInterface
     private $lastname;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Address::class, inversedBy="users")
-     */
-    private $address;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $isAdmin;
@@ -163,18 +158,6 @@ class User implements UserInterface
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    public function getAddress(): ?Address
-    {
-        return $this->address;
-    }
-
-    public function setAddress(?Address $address): self
-    {
-        $this->address = $address;
 
         return $this;
     }

@@ -23,16 +23,21 @@ class UserEventListener
         $entity = $args->getObject();
 
         if ($entity instanceof User) {
+
             $currentRights = $entity->getIsAdmin();
-//            dd($currentRights);
-            if ($currentRights) {
-//                dd($entity);
+            $currentRole = $entity->getRoles();
+            
+            if($currentRole[0] === "ROLE_SUPER_ADMIN"){
+                return;
+            } elseif ($currentRights) {
                 $entity->setRoles(["ROLE_ADMIN"]);
                 $this->entityManager->persist($entity);
-                $this->entityManager->flush();
             } else {
-                return;
+                $entity->setRoles(["ROLE_USER"]);
+                $this->entityManager->persist($entity);
             }
+
+            $this->entityManager->flush();
         }
     }
 }

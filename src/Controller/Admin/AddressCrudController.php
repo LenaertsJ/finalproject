@@ -2,18 +2,19 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Customers;
+use App\Entity\Address;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class CustomersCrudController extends AbstractCrudController
+class AddressCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Customers::class;
+        return Address::class;
     }
+
 
     public function configureFields(string $pageName): iterable
     {
@@ -22,7 +23,14 @@ class CustomersCrudController extends AbstractCrudController
             TextField::new('firstname'),
             TextField::new('lastname'),
             TextField::new('email'),
-            AssociationField::new('address')->setTemplatePath('list.html.twig')
+            TextField::new('phonenumber'),
+            TextField::new('street'),
+            NumberField::new('houseNumber'),
+            NumberField::new('postalCode')->formatValue(function($value){
+                return str_replace(',', '', $value);
+            }),
+            TextField::new('city'),
+            TextField::new('country'),
         ];
     }
 

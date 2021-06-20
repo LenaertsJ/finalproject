@@ -25,7 +25,7 @@ class Prices
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Products::class, inversedBy="prices")
+     * @ORM\ManyToOne(targetEntity=Products::class, inversedBy="prices", cascade={"remove"})
      */
     private $product;
 

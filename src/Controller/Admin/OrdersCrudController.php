@@ -40,7 +40,6 @@ class OrdersCrudController extends AbstractCrudController
             DateField::new('order_date', 'Date')->onlyOnIndex(),
             NumberField::new('totalPrice', 'Total price')->setTemplatePath('price.html.twig')->onlyOnIndex(),
             NumberField::new('totalItems', 'Total quantity')->onlyOnIndex(),
-            AssociationField::new('customer', 'Customer')->onlyOnIndex(),
             AssociationField::new('address', 'Address')->onlyOnIndex(),
             AssociationField::new('orderedProducts')->setTemplatePath('list.html.twig')->onlyOnIndex(),
 
