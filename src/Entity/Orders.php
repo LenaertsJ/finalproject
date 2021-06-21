@@ -18,6 +18,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * )
  * @ORM\Entity(repositoryClass=OrdersRepository::class)
  */
+
+// Voor deze entiteit zijn POST en GET mogelijk, maar
 class Orders
 {
     /**
@@ -42,13 +44,13 @@ class Orders
 
     /**
      * @ORM\Column(type="float", nullable=true)
-     * @Groups({"orders:write", "orders:read"})
+     * @Groups({"orders:write"})
      */
     private $totalPrice;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @Groups({"orders:write", "orders:read"})
+     * @Groups({"orders:write"})
      */
     private $totalItems;
 
@@ -63,7 +65,7 @@ class Orders
      */
     private $status;
 
-
+//status van een order wordt automatisch op "processing" gezet bij aanmaak en een dateTime wordt toegekend.
     public function __construct()
     {
         $this->order_date = new \DateTime();

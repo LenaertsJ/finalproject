@@ -41,8 +41,10 @@ class ProductsCrudController extends AbstractCrudController
 
         ];
 
+        //Op de index pagina en de detailweergave wordt een thumbnail van de image weergegeven.
         if($pageName == Crud::PAGE_INDEX || $pageName == Crud::PAGE_DETAIL){
             $fields[] = $image;
+            // Bij het aanmaken of aanpassen van een fiche wordt het uploadveld weergegeven.
         } else {
             $fields[] = $imageFile;
         }
@@ -50,6 +52,7 @@ class ProductsCrudController extends AbstractCrudController
         return $fields;
     }
 
+    //detail weergave wordt mogelijk gemaakt.
     public function configureActions(Actions $actions): Actions
     {
         return $actions->add(Crud::PAGE_INDEX, 'detail');

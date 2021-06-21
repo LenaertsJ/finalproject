@@ -7,6 +7,7 @@ use App\Form\AddressType;
 use App\Form\ChoiceType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
@@ -24,7 +25,10 @@ class OrdersCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
-        return $actions->disable(Action::DELETE);
+        //Orders kunnen niet verwijdert worden om te voorkomen dat dit per ongelukt gebeurt. Status kan wel op geannuleerd gezet worden.
+        //Orders kunnen niet vanuit het adminpaneel aangemaakt worden.
+        return $actions->disable(Action::DELETE)->disable(Action::NEW)
+            ->add(Crud::PAGE_INDEX, 'detail');
     }
 
 
@@ -32,6 +36,7 @@ class OrdersCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id', 'ID')->onlyOnIndex(),
+            //Enige veld dat aanpasbaar is.
             ChoiceField::new('status')->setChoices([
                 'Processing' => 'Processing',
                 'Sent' => 'Sent',

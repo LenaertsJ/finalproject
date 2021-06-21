@@ -10,6 +10,7 @@ use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class ResourceType extends AbstractType
 {
+    //er wordt een form gemaakt voor het uploaden van images.
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder

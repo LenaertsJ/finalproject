@@ -84,6 +84,7 @@ class Prices
     public function setNettoPrice(float $nettoPrice): self
     {
         $this->nettoPrice = $nettoPrice;
+        //op basis van de netto prijs die werd ingegeven wordt de brutoprijs berekend en afgerond tot decimalen na de komma.
         if($nettoPrice)
         {
             $this->brutoPrice = round($nettoPrice + ($nettoPrice * .21), 2);

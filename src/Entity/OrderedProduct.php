@@ -16,6 +16,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * )
  * @ORM\Entity(repositoryClass=OrderedProductRepository::class)
  */
+
+//POST en GET mogelijk. Bij een GET werden wel alle read permissies uitgeschakeld.
 class OrderedProduct
 {
     /**

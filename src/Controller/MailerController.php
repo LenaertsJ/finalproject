@@ -9,6 +9,9 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+//Deze is nog niet in gebruik...
+
 class MailerController
 {
     /**

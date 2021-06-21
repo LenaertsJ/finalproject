@@ -2,29 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4791d89f-45fa-4632-99ba-99bfa5aad383" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer_latest_install" beforeDir="false" afterPath="$PROJECT_DIR$/composer_latest_install" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/please_composer_install" beforeDir="false" afterPath="$PROJECT_DIR$/please_composer_install" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/CustomersCrudController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AddressCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AddressCrudController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/OrdersCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/OrdersCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/PlantsCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/PlantsCrudController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/ProductsCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/ProductsCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/QualitiesCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/QualitiesCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MailerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MailerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Address.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Customers.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/OrderedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/OrderedProduct.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Orders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Plants.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Plants.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Prices.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Prices.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Qualities.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Qualities.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventListener/OrderedProductEventListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/OrderedProductEventListener.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EventListener/UserEventListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/UserEventListener.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EventSubscribers/EasyAdminSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventSubscribers/EasyAdminSubscriber.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CustomersRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PriceType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PriceType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ResourceType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ResourceType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/StringFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/StringFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/images.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/price.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/price.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +226,8 @@
       <workItem from="1623922330708" duration="7254000" />
       <workItem from="1623963344283" duration="877000" />
       <workItem from="1624089427162" duration="2327000" />
-      <workItem from="1624178112798" duration="6473000" />
+      <workItem from="1624178112798" duration="7457000" />
+      <workItem from="1624266294300" duration="7386000" />
     </task>
     <servers />
   </component>
@@ -238,16 +244,17 @@
       <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state x="746" y="25" width="694" height="816" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.25.1440.816/-1920.-17.1920.1055@0.25.1440.816" timestamp="1623684030718" />
-    <state x="459" y="221" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1623084024938">
-      <screen x="0" y="25" width="1440" height="875" />
+    <state x="459" y="208" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1624273619817">
+      <screen x="0" y="25" width="1440" height="816" />
     </state>
+    <state x="459" y="208" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.816@0.25.1440.816" timestamp="1624273619817" />
     <state x="459" y="221" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.875/-1920.-17.1920.996@0.25.1440.875" timestamp="1623084024938" />
-    <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1624201709434">
+    <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1624271841872">
       <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state x="-826" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816/-1920.-17.1920.1055@-1920.-17.1920.1055" timestamp="1621527648076" />
     <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816/-1920.-17.1920.1055@0.25.1440.816" timestamp="1623708471897" />
-    <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816@0.25.1440.816" timestamp="1624201709434" />
+    <state x="821" y="157" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.816@0.25.1440.816" timestamp="1624271841872" />
     <state x="581" y="174" key="NewPhpClassDialog" timestamp="1623758886247">
       <screen x="0" y="25" width="1440" height="816" />
     </state>

@@ -24,6 +24,9 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @ORM\Entity(repositoryClass=PlantsRepository::class)
  * @Vich\Uploadable
  */
+
+//ENKEL GET requests zijn mogelijk
+
 class Plants
 {
     /**
@@ -64,6 +67,7 @@ class Plants
      * @ORM\JoinTable(name="plant_qualities")
      * @Groups({"plants:read"})
      */
+    //eigenlijk tags van medicinale kwaliteiten van de plant.
     private $qualities;
 
     /**
@@ -97,6 +101,7 @@ class Plants
     /**
      * @ORM\Column(type="text", nullable=true)
      */
+    //extra info over de qualities die werden gelinkt aan deze plant.
     private $medicinalInfo;
 
     public function __construct()
@@ -188,7 +193,6 @@ class Plants
      */
     public function setImage($image): void
     {
-        $image = strtolower($image);
         $this->image = $image;
     }
 
@@ -206,6 +210,7 @@ class Plants
     public function setImageFile($imageFile): void
     {
         $this->imageFile = $imageFile;
+        //wanneer er een imagefile bestaat dan wordt hieraan een dateTime toegekend en wordt ook de imageURL gezet voor gebruik in de frontend applicatie.
         if($imageFile){
             $this->updatedAt = new \DateTime();
             $this->imageUrl = "https://wdev2.be/julie21/eindwerk/resources/image.php/" . $this->name . ".jpg?image=/julie21/eindwerk/resources/images/" . $this->image;

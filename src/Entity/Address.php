@@ -18,6 +18,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * )
  * @ORM\Entity(repositoryClass=AddressRepository::class)
  */
+
+//POST en GET mogelijk. Bij een GET werden wel alle read permissies uitgeschakeld zodat geen gevoelige informatie opgevraagd kan worden via de api.
+
 class Address
 {
     /**

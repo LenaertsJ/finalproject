@@ -45,7 +45,7 @@ class Products
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      * @Groups({"products:read"})
      */
     private $description;
@@ -189,6 +189,7 @@ class Products
     public function setImageFile($imageFile): void
     {
         $this->imageFile = $imageFile;
+        //wanneer er een imagefile bestaat dan wordt hieraan een dateTime toegekend en wordt ook de imageURL gezet voor gebruik in de frontend applicatie.
         if($imageFile){
             $this->updatedAt = new \DateTime();
             $this->imageUrl = "https://wdev2.be/julie21/eindwerk/resources/image.php/" . $this->name . ".jpg?image=/julie21/eindwerk/resources/images/" . $this->image;

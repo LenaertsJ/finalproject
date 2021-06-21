@@ -23,7 +23,7 @@ security:
                     - App\Security\AppAuthenticator
             logout:
                 path: app_logout
-                # where to redirect after logout
+                # after logout you are directed back to the login page
                 target: /login
 
             # activate different ways to authenticate
@@ -32,8 +32,8 @@ security:
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
 
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
+# hiërarchie ingesteld zodat SUPER_ADMIN ook alle USER en gewone ADMIN rechten heeft.
+#    Gewone ADMIN heeft ook USER rechten.
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
@@ -41,11 +41,11 @@ security:
     access_control:
         - { path: '/register', roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
         - { path: '/login', roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
-        - { path: '/api/plants', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
-        - { path: '/api/categories', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
-        - { path: '/api/qualities', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
-        - { path: '/api/families', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
-        - { path: '/api/products', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
+#        - { path: '/api/plants', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
+#        - { path: '/api/categories', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
+#        - { path: '/api/qualities', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
+#        - { path: '/api/families', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
+#        - { path: '/api/products', roles: [ROLE_ADMIN], method: [POST, PUT, DELETE]}
         - { path: '/api', roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
         - { path: '/', roles: [ROLE_ADMIN] }
 

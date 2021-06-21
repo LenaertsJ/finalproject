@@ -26,6 +26,7 @@ class AddressCrudController extends AbstractCrudController
             TextField::new('phonenumber'),
             TextField::new('street'),
             NumberField::new('houseNumber'),
+            //Easyadmin gaf dit weer met een komma, deze wordt eruit gehaald.
             NumberField::new('postalCode')->formatValue(function($value){
                 return str_replace(',', '', $value);
             }),
