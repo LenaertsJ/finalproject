@@ -8,4 +8,4 @@ She is also able to sell some flower artwork and infusions she makes through the
 ## Framework
 
 The backend was developed with the Symfony framework, also using easAdmin for the admin panel and API Platform.
-A special library Vich Uploader was used to allow the upload of images.
+A special library Vich Uploader was used to allow the upload of images...
