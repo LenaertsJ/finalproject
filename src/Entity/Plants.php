@@ -100,6 +100,7 @@ class Plants
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"plants:read"})
      */
     //extra info over de qualities die werden gelinkt aan deze plant.
     private $medicinalInfo;

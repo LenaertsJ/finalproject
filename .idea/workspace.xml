@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4791d89f-45fa-4632-99ba-99bfa5aad383" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Plants.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Plants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventSubscribers/EasyAdminSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventSubscribers/EasyAdminSubscriber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/price.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/price.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +206,8 @@
       <workItem from="1624089427162" duration="2327000" />
       <workItem from="1624178112798" duration="7457000" />
       <workItem from="1624266294300" duration="7637000" />
-      <workItem from="1624275294313" duration="1458000" />
+      <workItem from="1624275294313" duration="1696000" />
+      <workItem from="1624290755258" duration="3333000" />
     </task>
     <servers />
   </component>

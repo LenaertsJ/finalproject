@@ -9,6 +9,7 @@ use App\Entity\Products;
 use App\services\StringFunctions;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Event\AfterEntityPersistedEvent;
+use EasyCorp\Bundle\EasyAdminBundle\Event\AfterEntityUpdatedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 
@@ -29,22 +30,24 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return[
-            AfterEntityPersistedEvent::class => ['stripTags']
+            AfterEntityPersistedEvent::class => ['stripTags'],
+            AfterEntityUpdatedEvent::class => ['stripTags']
         ];
     }
 
-    public function stripTags(AfterEntityPersistedEvent $persistEvent){
+    public function stripTags($event){
 
         //Opgeslagen record wordt in variabele gestoken die vervolgens door de stringFunctions service gehaald kan worden.
-        $entity = $persistEvent->getEntityInstance();
-
+            $entity = $event->getEntityInstance();
 
             if ($entity instanceof Products){
                 $stripped = $this->stringFunctions->removeTags($entity->getDescription());
                 $entity->setDescription($stripped);
             } elseif ($entity instanceof Plants){
-                $stripped = $this->stringFunctions->removeTags($entity->getSymbolism());
-                $entity->setSymbolism($stripped);
+                $strippedMedicinalInfo = $this->stringFunctions->removeTags($entity->getMedicinalInfo());
+                $strippedSymbolism = $this->stringFunctions->removeTags($entity->getSymbolism());
+                $entity->setSymbolism($strippedSymbolism);
+                $entity->setMedicinalInfo($strippedMedicinalInfo);
             } else {
                 return;
             }

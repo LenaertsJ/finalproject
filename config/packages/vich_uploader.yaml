@@ -3,8 +3,8 @@ vich_uploader:
 
     mappings:
         images:
-            uri_prefix: '%env(VICH_IMG_DIR)%'
-            upload_destination: '%env(VICH_UPLOAD_DESTINATION)%'
+            uri_prefix: "https://wdev2.be/julie21/eindwerk/resources/images"
+            upload_destination: "/var/www/html/wdev2.be/web/julie21/eindwerk/resources/images"
             namer:
 #                filename wordt vervangen door een unieke id
                 service: vich_uploader.namer_uniqid
